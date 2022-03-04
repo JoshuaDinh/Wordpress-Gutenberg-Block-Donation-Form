@@ -165,3 +165,19 @@ input[type="submit"] {
       rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
   }
 }
+
+// Result
+
+.result {
+  position: relative;
+}
+.result__data {
+  min-width: 50%;
+  color: whitesmoke;
+  padding: 10px;
+  border-radius: 15px;
+  margin: 0 auto;
+  background: $fall-back;
+  background: $webkit-background;
+  background: $background;
+}

@@ -1,8 +1,7 @@
 import React from "react";
 import { useStateMachine } from "little-state-machine";
 import "../styles/main.scss";
-import { ObjectSchema } from "yup";
-import { keyboard } from "@testing-library/user-event/dist/keyboard";
+
 import updateAction from "../actions/updateAction";
 import StepCount from "./StepCount";
 import Header from "./Header";
@@ -16,7 +15,7 @@ function Result() {
 
   const display = transformData.map((item, index) => {
     return (
-      <div>
+      <div key={index} className="result__data">
         <strong>{item[0]}</strong>
         <p>{item[1]}</p>
       </div>

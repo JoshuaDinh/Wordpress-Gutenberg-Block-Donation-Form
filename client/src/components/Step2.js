@@ -65,19 +65,6 @@ function Step2() {
             />
             <ErrorMessage error={errors?.ExpiryDate?.message} />
           </div>
-          {/* <div className="form__group">
-            <label htmlFor="ExpiryDate">Exp. Date</label>
-            <input
-              {...register("ExpiryDate", {
-                required: true,
-              })}
-              className="input"
-              type="text"
-              placeholder="Credit card expiration date (MM/YY)"
-              aria-invalid={errors.ExpiryDate ? "true" : "false"}
-            />
-            <ErrorMessage error={errors?.ExpiryDate?.message} />
-          </div> */}
           {/* CVV */}
           <div className="form__group">
             <label htmlFor="Cvv">CVV</label>
@@ -96,6 +83,7 @@ function Step2() {
             <ErrorMessage error={errors?.Cvv?.message} />
           </div>
           {/* Anonymous */}
+          {/* Configure to retrieve from WP */}
           <div className="form__group form__group-checkbox">
             <label htmlFor="Anonymous">Anonymous?</label>
             <input

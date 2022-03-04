@@ -22,11 +22,13 @@ export const UserSchema = yup.object().shape({
 
 // Payment Card Details
 export const PaymentSchema = yup.object().shape({
+  //Disable letters on card input
   CreditCardNumber: yup
     .string()
     .test("exact", "Must be 16 digits", (val) => val.length === 16)
     .typeError("Looks like you forgot some numbers")
     .required(),
+  //Apply date formating
   ExpiryDate: yup
     .string()
     .typeError("Somethings fishy about this.")
