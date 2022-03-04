@@ -21,4 +21,6 @@ Tasks in progress:
 - Create gutenberg block for form title
 - Create gutenberg block for image/logo
 
-Fun project, Cheers!
+can be viewed at https://joshuadinhform.herokuapp.com/
+
+Fun project & great packages!
