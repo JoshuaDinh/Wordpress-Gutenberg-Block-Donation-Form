@@ -10,6 +10,7 @@ import ErrorMessage from "./ErrorMessage";
 import Header from "./Header";
 
 function Step1() {
+  // Retrieve state
   const { state, actions } = useStateMachine({ updateAction });
   const {
     register,
