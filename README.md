@@ -18,8 +18,7 @@ Tasks in progress:
 - Extract form into a single component for reusability
 - Add additional custom error messages dependent on errors being handled
 - Connect to Wordpress 
-- Create Gutenberg block for form title
-- Create Gutenberg block for image/logo
+- Create Gutenberg block
 
 can be viewed at https://joshuadinhform.herokuapp.com/
 
