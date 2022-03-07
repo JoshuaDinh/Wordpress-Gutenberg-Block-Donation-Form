@@ -98,23 +98,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return FormInput; });
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 
-
-function FormInput(props) {
-  const {
-    label,
-    placeHolder,
-    value
-  } = props;
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
-    className: "form__input"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("label", null, label), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("input", {
-    type: "text",
-    placeholder: placeHolder,
-    value: value
-  }), ";");
+function FormInput() {
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("label", null), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("input", null));
 }
 
 /***/ }),
@@ -149,46 +135,9 @@ divsToUpdate.forEach(div => {
 });
 
 function OurComponent(props) {
-  const [form, setForm] = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])({
-    firstName: "",
-    lastName: "",
-    emailAddress: "",
-    password: ""
-  });
-
-  const handleFormChange = event => {
-    // Clone form because we need to modify it
-    const updatedForm = { ...form
-    }; // Get the name of the field that caused this change event
-    // Get the new value of this field
-    // Assign new value to the appropriate form field
-
-    updatedForm[event.target.name] = event.target.value;
-    console.log("Form changed: ", updatedForm); // Update state
-
-    setForm(updatedForm);
-  };
-
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "boilerplate-frontend"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_components_FormInput__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    label: "Last Name",
-    name: "lastName",
-    value: form.lastName,
-    onChange: handleFormChange
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_components_FormInput__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    label: "Email Address",
-    type: "email",
-    name: "emailAddress",
-    value: form.emailAddress,
-    onChange: handleFormChange
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_components_FormInput__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    label: "Password",
-    type: "password",
-    name: "password",
-    value: form.password,
-    onChange: handleFormChange
-  }), " ");
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_components_FormInput__WEBPACK_IMPORTED_MODULE_4__["default"], null));
 }
 
 /***/ }),

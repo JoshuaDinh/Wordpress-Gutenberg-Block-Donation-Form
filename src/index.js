@@ -15,9 +15,5 @@ wp.blocks.registerBlockType("makeupnamespace/make-up-block-name", {
 });
 
 function EditComponent(props) {
-  return (
-    <div className="makeUpYourBlockTypeName">
-      <p>boiler</p>
-    </div>
-  );
+  return <div className="makeUpYourBlockTypeName"></div>;
 }

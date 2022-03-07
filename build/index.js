@@ -121,7 +121,7 @@ wp.blocks.registerBlockType("makeupnamespace/make-up-block-name", {
 function EditComponent(props) {
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "makeUpYourBlockTypeName"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("p", null, "boiler"));
+  });
 }
 
 /***/ }),

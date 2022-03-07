@@ -1,7 +1,7 @@
 <?php
 
 /*
-  Plugin Name:Boilerplate Block Plugin
+  Plugin Name: Block Plugin
   Version: 1.0
   Author: Brad
   Author URI: https://github.com/LearnWebCode
