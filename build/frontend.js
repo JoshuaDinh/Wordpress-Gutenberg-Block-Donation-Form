@@ -114,6 +114,42 @@ module.exports = _extends, module.exports.__esModule = true, module.exports["def
 
 /***/ }),
 
+/***/ "./node_modules/@hookform/resolvers/dist/resolvers.module.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/@hookform/resolvers/dist/resolvers.module.js ***!
+  \*******************************************************************/
+/*! exports provided: toNestError, validateFieldsNatively */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "toNestError", function() { return f; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "validateFieldsNatively", function() { return t; });
+/* harmony import */ var react_hook_form__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-hook-form */ "./node_modules/react-hook-form/dist/index.esm.mjs");
+var e=function(i,e,t){if(i&&"reportValidity"in i){var f=Object(react_hook_form__WEBPACK_IMPORTED_MODULE_0__["get"])(t,e);i.setCustomValidity(f&&f.message||""),i.reportValidity()}},t=function(r,i){var t=function(t){var f=i.fields[t];f&&f.ref&&"reportValidity"in f.ref?e(f.ref,t,r):f.refs&&f.refs.forEach(function(i){return e(i,t,r)})};for(var f in i.fields)t(f)},f=function(e,f){f.shouldUseNativeValidation&&t(e,f);var o={};for(var a in e){var n=Object(react_hook_form__WEBPACK_IMPORTED_MODULE_0__["get"])(f.fields,a);Object(react_hook_form__WEBPACK_IMPORTED_MODULE_0__["set"])(o,a,Object.assign(e[a],{ref:n&&n.ref}))}return o};
+//# sourceMappingURL=resolvers.module.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@hookform/resolvers/yup/dist/yup.module.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/@hookform/resolvers/yup/dist/yup.module.js ***!
+  \*****************************************************************/
+/*! exports provided: yupResolver */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "yupResolver", function() { return o; });
+/* harmony import */ var _hookform_resolvers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @hookform/resolvers */ "./node_modules/@hookform/resolvers/dist/resolvers.module.js");
+/* harmony import */ var react_hook_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-hook-form */ "./node_modules/react-hook-form/dist/index.esm.mjs");
+var o=function(o,n,a){return void 0===n&&(n={}),void 0===a&&(a={}),function(s,i,c){try{return Promise.resolve(function(t,r){try{var u=(n.context&&"development"==="development"&&console.warn("You should not used the yup options context. Please, use the 'useForm' context object instead"),Promise.resolve(o["sync"===a.mode?"validateSync":"validate"](s,Object.assign({abortEarly:!1},n,{context:i}))).then(function(t){return c.shouldUseNativeValidation&&Object(_hookform_resolvers__WEBPACK_IMPORTED_MODULE_0__["validateFieldsNatively"])({},c),{values:t,errors:{}}}))}catch(e){return r(e)}return u&&u.then?u.then(void 0,r):u}(0,function(e){if(!e.inner)throw e;return{values:{},errors:Object(_hookform_resolvers__WEBPACK_IMPORTED_MODULE_0__["toNestError"])((o=e,n=!c.shouldUseNativeValidation&&"all"===c.criteriaMode,(o.inner||[]).reduce(function(e,t){if(e[t.path]||(e[t.path]={message:t.message,type:t.type}),n){var o=e[t.path].types,a=o&&o[t.type];e[t.path]=Object(react_hook_form__WEBPACK_IMPORTED_MODULE_1__["appendErrors"])(t.path,n,e,t.type,a?[].concat(a,t.message):t.message)}return e},{})),c)};var o,n}))}catch(e){return Promise.reject(e)}}};
+//# sourceMappingURL=yup.module.js.map
+
+
+/***/ }),
+
 /***/ "./node_modules/lodash/_DataView.js":
 /*!******************************************!*\
   !*** ./node_modules/lodash/_DataView.js ***!
@@ -10922,19 +10958,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function Button() {
-  const {
-    index,
-    setIndex
-  } = Object(react__WEBPACK_IMPORTED_MODULE_1__["useContext"])(_context_IndexContext__WEBPACK_IMPORTED_MODULE_2__["IndexContext"]);
   const methods = Object(react_hook_form__WEBPACK_IMPORTED_MODULE_3__["useFormContext"])();
+  console.log(methods.handleSubmit);
 
   const handleClick = event => {
     event.preventDefault();
-    setIndex(index + 1);
+    methods.handleSubmit();
   };
 
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("button", {
-    onClick: handleClick
+    onSubmit: handleClick,
+    type: "submit"
   }, "Proceed");
 }
 
@@ -10951,13 +10985,8 @@ function Button() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_hook_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-hook-form */ "./node_modules/react-hook-form/dist/index.esm.mjs");
-/* harmony import */ var _Button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Button */ "./src/components/Button.js");
-/* harmony import */ var _context_IndexContext__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../context/IndexContext */ "./src/context/IndexContext.js");
-
-
+/* harmony import */ var react_hook_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-hook-form */ "./node_modules/react-hook-form/dist/index.esm.mjs");
+/* harmony import */ var _Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Button */ "./src/components/Button.js");
 
 
 
@@ -10965,23 +10994,17 @@ __webpack_require__.r(__webpack_exports__);
 const Form = props => {
   const {
     children
-  } = props; //Context
-
-  const methods = Object(react_hook_form__WEBPACK_IMPORTED_MODULE_2__["useFormContext"])();
-  const {
-    index,
-    setIndex
-  } = Object(react__WEBPACK_IMPORTED_MODULE_1__["useContext"])(_context_IndexContext__WEBPACK_IMPORTED_MODULE_4__["IndexContext"]);
+  } = props;
+  const methods = Object(react_hook_form__WEBPACK_IMPORTED_MODULE_1__["useFormContext"])();
 
   const onSubmit = data => console.log(data);
 
-  console.log(methods);
+  const onErrors = errors => console.error(errors);
+
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("form", {
     className: "form",
-    onSubmit: methods.handleSubmit(onSubmit)
-  }, children, index > 1 ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("input", {
-    type: "Submit"
-  }) : Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_Button__WEBPACK_IMPORTED_MODULE_3__["default"], null));
+    onSubmit: methods.handleSubmit(onSubmit, onErrors)
+  }, children, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_Button__WEBPACK_IMPORTED_MODULE_2__["default"], null));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Form);
@@ -11013,14 +11036,15 @@ function FormInput(props) {
     name,
     placeHolder,
     defaultValue,
-    ariaInvalid
+    ariaInvalid,
+    error
   } = props;
   const methods = Object(react_hook_form__WEBPACK_IMPORTED_MODULE_2__["useFormContext"])();
-  console.log(methods.watch(name)); // watch input value by passing the name of it
-
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
     className: "form__group"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("label", null, label), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("input", _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("label", null, label), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
+    className: "form__group__wrapper"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("input", _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({
     type: type,
     placeHolder: placeHolder,
     name: name,
@@ -11029,7 +11053,9 @@ function FormInput(props) {
     required: true
   }), {
     ariaInvalid: ariaInvalid
-  })));
+  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("p", {
+    className: "error__message"
+  }, error)));
 }
 
 /***/ }),
@@ -11039,15 +11065,9 @@ function FormInput(props) {
   !*** ./src/context/IndexContext.js ***!
   \*************************************/
 /*! exports provided: IndexContext */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IndexContext", function() { return IndexContext; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-
-const IndexContext = Object(react__WEBPACK_IMPORTED_MODULE_0__["createContext"])(null);
+throw new Error("Module build failed (from ./node_modules/source-map-loader/index.js):\nError: ENOENT: no such file or directory, open '/Users/joshuadinh/Local Sites/practice/app/public/wp-content/plugins/BlockForm/src/context/IndexContext.js'");
 
 /***/ }),
 
@@ -11069,10 +11089,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _components_Form__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/Form */ "./src/components/Form.js");
 /* harmony import */ var _steps_Step1__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./steps/Step1 */ "./src/steps/Step1.js");
-/* harmony import */ var react_hook_form__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-hook-form */ "./node_modules/react-hook-form/dist/index.esm.mjs");
-/* harmony import */ var _context_IndexContext__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./context/IndexContext */ "./src/context/IndexContext.js");
-/* harmony import */ var _steps_Step2__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./steps/Step2 */ "./src/steps/Step2.js");
-/* harmony import */ var _schema_schema__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./schema/schema */ "./src/schema/schema.js");
+/* harmony import */ var _steps_Step2__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./steps/Step2 */ "./src/steps/Step2.js");
+/* harmony import */ var react_hook_form__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-hook-form */ "./node_modules/react-hook-form/dist/index.esm.mjs");
+/* harmony import */ var _schema_schema__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./schema/schema */ "./src/schema/schema.js");
+/* harmony import */ var _hookform_resolvers_yup__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @hookform/resolvers/yup */ "./node_modules/@hookform/resolvers/yup/dist/yup.module.js");
 
 
 
@@ -11091,19 +11111,10 @@ divsToUpdate.forEach(div => {
 });
 
 function OurComponent(props) {
-  const [index, setIndex] = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])(0);
-  const methods = Object(react_hook_form__WEBPACK_IMPORTED_MODULE_6__["useForm"])({
-    schema: _schema_schema__WEBPACK_IMPORTED_MODULE_9__["schema"]
+  const methods = Object(react_hook_form__WEBPACK_IMPORTED_MODULE_7__["useForm"])({
+    resolver: Object(_hookform_resolvers_yup__WEBPACK_IMPORTED_MODULE_9__["yupResolver"])(_schema_schema__WEBPACK_IMPORTED_MODULE_8__["schema"])
   });
-
-  const onSubmit = data => console.log(data);
-
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(react_hook_form__WEBPACK_IMPORTED_MODULE_6__["FormProvider"], methods, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_context_IndexContext__WEBPACK_IMPORTED_MODULE_7__["IndexContext"].Provider, {
-    value: {
-      index,
-      setIndex
-    }
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_components_Form__WEBPACK_IMPORTED_MODULE_4__["default"], null, index === 0 ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_steps_Step1__WEBPACK_IMPORTED_MODULE_5__["default"], null) : index === 1 ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_steps_Step2__WEBPACK_IMPORTED_MODULE_8__["default"], null) : Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_steps_Step1__WEBPACK_IMPORTED_MODULE_5__["default"], null))));
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(react_hook_form__WEBPACK_IMPORTED_MODULE_7__["FormProvider"], methods, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_components_Form__WEBPACK_IMPORTED_MODULE_4__["default"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_steps_Step1__WEBPACK_IMPORTED_MODULE_5__["default"], null)));
 }
 
 /***/ }),
@@ -11140,10 +11151,10 @@ const schema = yup__WEBPACK_IMPORTED_MODULE_0__["object"]().shape({
   LastName: yup__WEBPACK_IMPORTED_MODULE_0__["string"]().max(25).required(),
   Email: yup__WEBPACK_IMPORTED_MODULE_0__["string"]().email().required(),
   //Disable letters on card input
-  CreditCardNumber: yup__WEBPACK_IMPORTED_MODULE_0__["string"]().test("exact", "Must be 16 digits", val => val.length === 16).typeError("Looks like you forgot some numbers").required(),
+  CreditCardNumber: yup__WEBPACK_IMPORTED_MODULE_0__["string"]().typeError("Looks like you forgot some numbers").required(),
   //Apply date formating
   ExpiryDate: yup__WEBPACK_IMPORTED_MODULE_0__["string"]().typeError("Somethings fishy about this.").required(""),
-  Cvv: yup__WEBPACK_IMPORTED_MODULE_0__["string"]().test("exact", "Must be 3 digits", val => val.length === 3).typeError("Ooops.. Try 3 digits").required(),
+  Cvv: yup__WEBPACK_IMPORTED_MODULE_0__["string"]().typeError("Ooops.. Try 3 digits").required(),
   anonymous: false
 }); // // Payment Card Details
 // export const PaymentSchema = yup.object().shape({
@@ -11181,24 +11192,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_FormInput__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/FormInput */ "./src/components/FormInput.js");
+/* harmony import */ var react_hook_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-hook-form */ "./node_modules/react-hook-form/dist/index.esm.mjs");
+
 
 
 function Step1() {
+  var _methods$formState$er, _methods$formState$er2, _methods$formState$er3, _methods$formState$er4, _methods$formState$er5, _methods$formState$er6;
+
+  const methods = Object(react_hook_form__WEBPACK_IMPORTED_MODULE_2__["useFormContext"])();
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_components_FormInput__WEBPACK_IMPORTED_MODULE_1__["default"], {
     name: "FirstName",
     placeHolder: "FirstName",
     label: "FirstName",
-    type: "text"
+    type: "text",
+    error: (_methods$formState$er = methods.formState.errors) === null || _methods$formState$er === void 0 ? void 0 : (_methods$formState$er2 = _methods$formState$er.FirstName) === null || _methods$formState$er2 === void 0 ? void 0 : _methods$formState$er2.message
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_components_FormInput__WEBPACK_IMPORTED_MODULE_1__["default"], {
     name: "LastName",
     placeHolder: "LastName",
     label: "LastName",
-    type: "text"
+    type: "text",
+    error: (_methods$formState$er3 = methods.formState.errors) === null || _methods$formState$er3 === void 0 ? void 0 : (_methods$formState$er4 = _methods$formState$er3.LastName) === null || _methods$formState$er4 === void 0 ? void 0 : _methods$formState$er4.message
   }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_components_FormInput__WEBPACK_IMPORTED_MODULE_1__["default"], {
     name: "Email",
     placeHolder: "Email",
     label: "Email",
-    type: "email"
+    type: "email",
+    error: (_methods$formState$er5 = methods.formState.errors) === null || _methods$formState$er5 === void 0 ? void 0 : (_methods$formState$er6 = _methods$formState$er5.Email) === null || _methods$formState$er6 === void 0 ? void 0 : _methods$formState$er6.message
   }));
 }
 

@@ -1,22 +1,19 @@
-import { useContext } from "react";
-import { useForm, useFormContext } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
 import Button from "./Button";
-import { IndexContext } from "../context/IndexContext";
 
 const Form = (props) => {
   const { children } = props;
-  //Context
   const methods = useFormContext();
-  const { index, setIndex } = useContext(IndexContext);
 
   const onSubmit = (data) => console.log(data);
 
-  console.log(methods);
+  const onErrors = (errors) => console.error(errors);
+
   return (
-    <form className="form" onSubmit={methods.handleSubmit(onSubmit)}>
+    <form className="form" onSubmit={methods.handleSubmit(onSubmit, onErrors)}>
       {/* Renders Input Components */}
       {children}
-      {index > 1 ? <input type="Submit" /> : <Button />}
+      <Button />
     </form>
   );
 };

@@ -3,12 +3,17 @@ import { IndexContext } from "../context/IndexContext";
 import { useForm, useFormContext } from "react-hook-form";
 
 export default function Button() {
-  const { index, setIndex } = useContext(IndexContext);
   const methods = useFormContext();
+
+  console.log(methods.handleSubmit);
 
   const handleClick = (event) => {
     event.preventDefault();
-    setIndex(index + 1);
+    methods.handleSubmit();
   };
-  return <button onClick={handleClick}>Proceed</button>;
+  return (
+    <button onSubmit={handleClick} type="submit">
+      Proceed
+    </button>
+  );
 }
