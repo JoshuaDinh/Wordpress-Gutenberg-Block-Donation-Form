@@ -1,0 +1,23 @@
+.form {
+  padding: 25px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+.form input {
+  margin: 0 auto;
+  border: 1px solid green;
+}
+
+.form__group {
+  display: flex;
+  margin: 10px;
+}
+.form__group label {
+  display: flex;
+  min-width: 10rem;
+  margin: 10px;
+}
+.form__group input {
+  flex: 1;
+}
+
+/*# sourceMappingURL=frontend.css.map*/
