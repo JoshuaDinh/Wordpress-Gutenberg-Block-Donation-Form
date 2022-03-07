@@ -1,17 +1,13 @@
-import { useFormContext } from "react-hook-form";
+import { useContext } from "react";
+import StepContext from "../context/StepContext";
 
 export default function Button() {
-  const methods = useFormContext();
-
-  console.log(methods.handleSubmit);
+  const { step, setStep } = useContext(StepContext);
 
   const handleClick = (event) => {
     event.preventDefault();
-    methods.handleSubmit();
+    setStep(step + 1);
   };
-  return (
-    <button onSubmit={handleClick} type="submit">
-      Proceed
-    </button>
-  );
+  console.log(step);
+  return <button onClick={handleClick}>Proceed</button>;
 }

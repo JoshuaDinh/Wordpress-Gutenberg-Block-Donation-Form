@@ -1,9 +1,11 @@
 import "./frontend.scss";
-import React from "react";
+import React, { useState, useContext } from "react";
 import ReactDOM from "react-dom";
 import Form from "./components/Form";
 import Step1 from "./steps/Step1";
 import Step2 from "./steps/Step2";
+import Result from "./steps/Result";
+import StepContext from "./context/StepContext";
 import { useForm, FormProvider } from "react-hook-form";
 import { schema } from "./schema/schema";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -17,13 +19,28 @@ divsToUpdate.forEach((div) => {
 });
 
 function OurComponent(props) {
+  const [step, setStep] = useState(0);
   const methods = useForm({ resolver: yupResolver(schema) });
+
+  function displaySteps() {
+    switch (step) {
+      case 0:
+        return <Step1 />;
+        break;
+      case 1:
+        return <Step2 />;
+        break;
+      case 2:
+        return <Result />;
+        break;
+    }
+  }
 
   return (
     <FormProvider {...methods}>
-      <Form>
-        <Step1 />
-      </Form>
+      <StepContext.Provider value={{ step, setStep }}>
+        <Form>{displaySteps()}</Form>
+      </StepContext.Provider>
     </FormProvider>
   );
 }
