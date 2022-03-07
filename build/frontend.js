@@ -116,7 +116,7 @@ divsToUpdate.forEach(div => {
 function OurComponent(props) {
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "boilerplate-frontend"
-  }, "murpaderp");
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("p", null, "boiler"));
 }
 
 /***/ }),

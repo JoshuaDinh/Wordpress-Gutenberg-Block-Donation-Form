@@ -119,31 +119,9 @@ wp.blocks.registerBlockType("makeupnamespace/make-up-block-name", {
 });
 
 function EditComponent(props) {
-  function updateSkyColor(e) {
-    props.setAttributes({
-      skyColor: e.target.value
-    });
-  }
-
-  function updateGrassColor(e) {
-    props.setAttributes({
-      grassColor: e.target.value
-    });
-  }
-
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "makeUpYourBlockTypeName"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("input", {
-    type: "text",
-    value: props.attributes.skyColor,
-    onChange: updateSkyColor,
-    placeholder: "sky color..."
-  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("input", {
-    type: "text",
-    value: props.attributes.grassColor,
-    onChange: updateGrassColor,
-    placeholder: "grass color..."
-  }));
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("p", null, "boiler"));
 }
 
 /***/ }),

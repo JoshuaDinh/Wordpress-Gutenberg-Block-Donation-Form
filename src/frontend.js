@@ -11,5 +11,9 @@ divsToUpdate.forEach((div) => {
 });
 
 function OurComponent(props) {
-  return <div className="boilerplate-frontend"></div>;
+  return (
+    <div className="boilerplate-frontend">
+      <p>boiler</p>
+    </div>
+  );
 }

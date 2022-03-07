@@ -1,7 +1,7 @@
 <?php
 
 /*
-  Plugin Name: Boilerplate Block Plugin
+  Plugin Name:Boilerplate Block Plugin
   Version: 1.0
   Author: Brad
   Author URI: https://github.com/LearnWebCode
@@ -9,7 +9,7 @@
 
 if( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-class BradsBoilerplate {
+class Boilerplate {
   function __construct() {
     add_action('init', array($this, 'onInit'));
   }
@@ -42,4 +42,4 @@ class BradsBoilerplate {
   }
 }
 
-$Boilerplate = new BradsBoilerplate();
+$Boilerplate = new Boilerplate();
