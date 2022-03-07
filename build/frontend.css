@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .form {
   padding: 25px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
@@ -27,20 +26,6 @@
   min-height: 50px;
   color: red;
   font-size: 0.85rem;
-=======
-.boilerplate-frontend {
-  border-radius: 5px;
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.07);
-  background-color: #ffe5b4;
-  border: 2px solid #ffda97;
-  color: #ce9c41;
-  padding: 20px;
-  margin: 20px 0;
-}
-.boilerplate-frontend p {
-  margin: 0;
-  padding: 0;
->>>>>>> 7c61376428bc6f34fda2e0750632a8eff81a0045
 }
 
 /*# sourceMappingURL=frontend.css.map*/

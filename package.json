@@ -16,7 +16,6 @@
   "devDependencies": {
     "@wordpress/scripts": "^17.0.0",
     "browser-sync": "^2.27.4",
-<<<<<<< HEAD
     "eslint-plugin-react-hooks": "^4.3.0",
     "npm-run-all": "^4.1.5"
   },
@@ -25,8 +24,5 @@
     "little-state-machine": "^4.2.3",
     "react-hook-form": "^7.27.1",
     "yup": "^0.32.11"
-=======
-    "npm-run-all": "^4.1.5"
->>>>>>> 7c61376428bc6f34fda2e0750632a8eff81a0045
   }
 }
