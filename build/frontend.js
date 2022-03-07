@@ -10949,16 +10949,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Button; });
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _context_IndexContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../context/IndexContext */ "./src/context/IndexContext.js");
-/* harmony import */ var react_hook_form__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-hook-form */ "./node_modules/react-hook-form/dist/index.esm.mjs");
-
-
+/* harmony import */ var react_hook_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-hook-form */ "./node_modules/react-hook-form/dist/index.esm.mjs");
 
 
 function Button() {
-  const methods = Object(react_hook_form__WEBPACK_IMPORTED_MODULE_3__["useFormContext"])();
+  const methods = Object(react_hook_form__WEBPACK_IMPORTED_MODULE_1__["useFormContext"])();
   console.log(methods.handleSubmit);
 
   const handleClick = event => {
@@ -11057,17 +11052,6 @@ function FormInput(props) {
     className: "error__message"
   }, error)));
 }
-
-/***/ }),
-
-/***/ "./src/context/IndexContext.js":
-/*!*************************************!*\
-  !*** ./src/context/IndexContext.js ***!
-  \*************************************/
-/*! exports provided: IndexContext */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/source-map-loader/index.js):\nError: ENOENT: no such file or directory, open '/Users/joshuadinh/Local Sites/practice/app/public/wp-content/plugins/BlockForm/src/context/IndexContext.js'");
 
 /***/ }),
 

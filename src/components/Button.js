@@ -1,6 +1,4 @@
-import { useContext } from "react";
-import { IndexContext } from "../context/IndexContext";
-import { useForm, useFormContext } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
 
 export default function Button() {
   const methods = useFormContext();
