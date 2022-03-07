@@ -1,7 +1,10 @@
+import { useContext } from "react";
 import { useFormContext } from "react-hook-form";
+import StepContext from "../context/StepContext";
 import Button from "./Button";
 
 const Form = (props) => {
+  const { step } = useContext(StepContext);
   const { children } = props;
   const methods = useFormContext();
 
@@ -13,7 +16,8 @@ const Form = (props) => {
     <form className="form" onSubmit={methods.handleSubmit(onSubmit, onErrors)}>
       {/* Renders Input Components */}
       {children}
-      <Button />
+      {/* If current step is less than or equal to 1 display button to proceed. Otherwise display submit button */}
+      {step <= 1 ? <Button /> : <input type="submit" />}
     </form>
   );
 };
