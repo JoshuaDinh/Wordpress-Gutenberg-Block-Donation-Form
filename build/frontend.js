@@ -86,34 +86,6 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./node_modules/@babel/runtime/helpers/extends.js":
-/*!********************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/extends.js ***!
-  \********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-function _extends() {
-  module.exports = _extends = Object.assign || function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
-    }
-
-    return target;
-  }, module.exports.__esModule = true, module.exports["default"] = module.exports;
-  return _extends.apply(this, arguments);
-}
-
-module.exports = _extends, module.exports.__esModule = true, module.exports["default"] = module.exports;
-
-/***/ }),
-
 /***/ "./node_modules/@hookform/resolvers/dist/resolvers.module.js":
 /*!*******************************************************************!*\
   !*** ./node_modules/@hookform/resolvers/dist/resolvers.module.js ***!
@@ -11011,47 +10983,9 @@ const Form = props => {
   !*** ./src/components/FormInput.js ***!
   \*************************************/
 /*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return FormInput; });
-/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/extends */ "./node_modules/@babel/runtime/helpers/extends.js");
-/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_hook_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-hook-form */ "./node_modules/react-hook-form/dist/index.esm.mjs");
-
-
-
-function FormInput(props) {
-  const {
-    type = "text",
-    label,
-    name,
-    placeHolder,
-    defaultValue,
-    ariaInvalid,
-    error
-  } = props;
-  const methods = Object(react_hook_form__WEBPACK_IMPORTED_MODULE_2__["useFormContext"])();
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
-    className: "form__group"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("label", null, label), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
-    className: "form__group__wrapper"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("input", _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({
-    type: type,
-    placeHolder: placeHolder,
-    name: name,
-    id: name
-  }, methods.register(name, {
-    required: true
-  }), {
-    ariaInvalid: ariaInvalid
-  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("p", {
-    className: "error__message"
-  }, error)));
-}
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/joshuadinh/Local Sites/practice/app/public/wp-content/plugins/BlockForm/src/components/FormInput.js: Unexpected token (1:1)\n\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 1 |\u001b[39m \u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m   |\u001b[39m  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 2 |\u001b[39m \u001b[36mimport\u001b[39m { useFormContext } \u001b[36mfrom\u001b[39m \u001b[32m\"react-hook-form\"\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 3 |\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 4 |\u001b[39m \u001b[36mexport\u001b[39m \u001b[36mdefault\u001b[39m \u001b[36mfunction\u001b[39m \u001b[33mFormInput\u001b[39m(props) {\u001b[0m\n    at Object._raise (/Users/joshuadinh/Local Sites/practice/app/public/wp-content/plugins/BlockForm/node_modules/@babel/parser/lib/index.js:476:17)\n    at Object.raiseWithData (/Users/joshuadinh/Local Sites/practice/app/public/wp-content/plugins/BlockForm/node_modules/@babel/parser/lib/index.js:469:17)\n    at Object.raise (/Users/joshuadinh/Local Sites/practice/app/public/wp-content/plugins/BlockForm/node_modules/@babel/parser/lib/index.js:430:17)\n    at Object.unexpected (/Users/joshuadinh/Local Sites/practice/app/public/wp-content/plugins/BlockForm/node_modules/@babel/parser/lib/index.js:3789:16)\n    at Object.jsxParseIdentifier (/Users/joshuadinh/Local Sites/practice/app/public/wp-content/plugins/BlockForm/node_modules/@babel/parser/lib/index.js:7559:12)\n    at Object.jsxParseNamespacedName (/Users/joshuadinh/Local Sites/practice/app/public/wp-content/plugins/BlockForm/node_modules/@babel/parser/lib/index.js:7569:23)\n    at Object.jsxParseElementName (/Users/joshuadinh/Local Sites/practice/app/public/wp-content/plugins/BlockForm/node_modules/@babel/parser/lib/index.js:7580:21)\n    at Object.jsxParseOpeningElementAt (/Users/joshuadinh/Local Sites/practice/app/public/wp-content/plugins/BlockForm/node_modules/@babel/parser/lib/index.js:7677:22)\n    at Object.jsxParseElementAt (/Users/joshuadinh/Local Sites/practice/app/public/wp-content/plugins/BlockForm/node_modules/@babel/parser/lib/index.js:7710:33)\n    at Object.jsxParseElement (/Users/joshuadinh/Local Sites/practice/app/public/wp-content/plugins/BlockForm/node_modules/@babel/parser/lib/index.js:7793:17)\n    at Object.parseExprAtom (/Users/joshuadinh/Local Sites/practice/app/public/wp-content/plugins/BlockForm/node_modules/@babel/parser/lib/index.js:7807:19)\n    at Object.parseExprSubscripts (/Users/joshuadinh/Local Sites/practice/app/public/wp-content/plugins/BlockForm/node_modules/@babel/parser/lib/index.js:12149:23)\n    at Object.parseUpdate (/Users/joshuadinh/Local Sites/practice/app/public/wp-content/plugins/BlockForm/node_modules/@babel/parser/lib/index.js:12129:21)\n    at Object.parseMaybeUnary (/Users/joshuadinh/Local Sites/practice/app/public/wp-content/plugins/BlockForm/node_modules/@babel/parser/lib/index.js:12104:23)\n    at Object.parseMaybeUnaryOrPrivate (/Users/joshuadinh/Local Sites/practice/app/public/wp-content/plugins/BlockForm/node_modules/@babel/parser/lib/index.js:11901:61)\n    at Object.parseExprOps (/Users/joshuadinh/Local Sites/practice/app/public/wp-content/plugins/BlockForm/node_modules/@babel/parser/lib/index.js:11908:23)\n    at Object.parseMaybeConditional (/Users/joshuadinh/Local Sites/practice/app/public/wp-content/plugins/BlockForm/node_modules/@babel/parser/lib/index.js:11878:23)\n    at Object.parseMaybeAssign (/Users/joshuadinh/Local Sites/practice/app/public/wp-content/plugins/BlockForm/node_modules/@babel/parser/lib/index.js:11833:21)\n    at Object.parseExpressionBase (/Users/joshuadinh/Local Sites/practice/app/public/wp-content/plugins/BlockForm/node_modules/@babel/parser/lib/index.js:11769:23)\n    at /Users/joshuadinh/Local Sites/practice/app/public/wp-content/plugins/BlockForm/node_modules/@babel/parser/lib/index.js:11763:39\n    at Object.allowInAnd (/Users/joshuadinh/Local Sites/practice/app/public/wp-content/plugins/BlockForm/node_modules/@babel/parser/lib/index.js:13817:16)\n    at Object.parseExpression (/Users/joshuadinh/Local Sites/practice/app/public/wp-content/plugins/BlockForm/node_modules/@babel/parser/lib/index.js:11763:17)\n    at Object.parseStatementContent (/Users/joshuadinh/Local Sites/practice/app/public/wp-content/plugins/BlockForm/node_modules/@babel/parser/lib/index.js:14256:23)\n    at Object.parseStatement (/Users/joshuadinh/Local Sites/practice/app/public/wp-content/plugins/BlockForm/node_modules/@babel/parser/lib/index.js:14113:17)\n    at Object.parseBlockOrModuleBlockBody (/Users/joshuadinh/Local Sites/practice/app/public/wp-content/plugins/BlockForm/node_modules/@babel/parser/lib/index.js:14739:25)\n    at Object.parseBlockBody (/Users/joshuadinh/Local Sites/practice/app/public/wp-content/plugins/BlockForm/node_modules/@babel/parser/lib/index.js:14730:10)\n    at Object.parseProgram (/Users/joshuadinh/Local Sites/practice/app/public/wp-content/plugins/BlockForm/node_modules/@babel/parser/lib/index.js:14032:10)\n    at Object.parseTopLevel (/Users/joshuadinh/Local Sites/practice/app/public/wp-content/plugins/BlockForm/node_modules/@babel/parser/lib/index.js:14019:25)\n    at Object.parse (/Users/joshuadinh/Local Sites/practice/app/public/wp-content/plugins/BlockForm/node_modules/@babel/parser/lib/index.js:15940:10)\n    at parse (/Users/joshuadinh/Local Sites/practice/app/public/wp-content/plugins/BlockForm/node_modules/@babel/parser/lib/index.js:15992:38)");
 
 /***/ }),
 
@@ -11108,12 +11042,9 @@ function OurComponent(props) {
   !*** ./src/frontend.scss ***!
   \***************************/
 /*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
+throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/postcss-loader/dist/cjs.js):\nJSONError: JSON Error in /Users/joshuadinh/Local Sites/practice/app/public/wp-content/plugins/BlockForm/package.json: \n\n\u001b[0m \u001b[90m 17 |\u001b[39m     \u001b[32m\"@wordpress/scripts\"\u001b[39m\u001b[33m:\u001b[39m \u001b[32m\"^17.0.0\"\u001b[39m\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 18 |\u001b[39m     \u001b[32m\"browser-sync\"\u001b[39m\u001b[33m:\u001b[39m \u001b[32m\"^2.27.4\"\u001b[39m\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 19 |\u001b[39m \u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 20 |\u001b[39m     \u001b[32m\"eslint-plugin-react-hooks\"\u001b[39m\u001b[33m:\u001b[39m \u001b[32m\"^4.3.0\"\u001b[39m\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 21 |\u001b[39m     \u001b[32m\"npm-run-all\"\u001b[39m\u001b[33m:\u001b[39m \u001b[32m\"^4.1.5\"\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 22 |\u001b[39m   }\u001b[33m,\u001b[39m\u001b[0m\n\nUnexpected token \"<\" (0x3C) in JSON at position 605 while parsing near \"...r-sync\\\": \\\"^2.27.4\\\",\\n<<<<<<< HEAD\\n    \\\"es...\" \n\n\u001b[0m \u001b[90m 17 |\u001b[39m     \u001b[32m\"@wordpress/scripts\"\u001b[39m\u001b[33m:\u001b[39m \u001b[32m\"^17.0.0\"\u001b[39m\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 18 |\u001b[39m     \u001b[32m\"browser-sync\"\u001b[39m\u001b[33m:\u001b[39m \u001b[32m\"^2.27.4\"\u001b[39m\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 19 |\u001b[39m \u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 20 |\u001b[39m     \u001b[32m\"eslint-plugin-react-hooks\"\u001b[39m\u001b[33m:\u001b[39m \u001b[32m\"^4.3.0\"\u001b[39m\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 21 |\u001b[39m     \u001b[32m\"npm-run-all\"\u001b[39m\u001b[33m:\u001b[39m \u001b[32m\"^4.1.5\"\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 22 |\u001b[39m   }\u001b[33m,\u001b[39m\u001b[0m\n\n    at parseJson (/Users/joshuadinh/Local Sites/practice/app/public/wp-content/plugins/BlockForm/node_modules/parse-json/index.js:29:21)\n    at Object.loadJson (/Users/joshuadinh/Local Sites/practice/app/public/wp-content/plugins/BlockForm/node_modules/cosmiconfig/dist/loaders.js:28:20)\n    at Explorer.loadPackageProp (/Users/joshuadinh/Local Sites/practice/app/public/wp-content/plugins/BlockForm/node_modules/cosmiconfig/dist/ExplorerBase.js:82:44)\n    at Explorer.loadFileContent (/Users/joshuadinh/Local Sites/practice/app/public/wp-content/plugins/BlockForm/node_modules/cosmiconfig/dist/Explorer.js:84:32)\n    at Explorer.createCosmiconfigResult (/Users/joshuadinh/Local Sites/practice/app/public/wp-content/plugins/BlockForm/node_modules/cosmiconfig/dist/Explorer.js:89:36)\n    at Explorer.loadSearchPlace (/Users/joshuadinh/Local Sites/practice/app/public/wp-content/plugins/BlockForm/node_modules/cosmiconfig/dist/Explorer.js:70:31)\n    at async Explorer.searchDirectory (/Users/joshuadinh/Local Sites/practice/app/public/wp-content/plugins/BlockForm/node_modules/cosmiconfig/dist/Explorer.js:55:27)\n    at async run (/Users/joshuadinh/Local Sites/practice/app/public/wp-content/plugins/BlockForm/node_modules/cosmiconfig/dist/Explorer.js:35:22)\n    at async cacheWrapper (/Users/joshuadinh/Local Sites/practice/app/public/wp-content/plugins/BlockForm/node_modules/cosmiconfig/dist/cacheWrapper.js:16:18)\n    at async cacheWrapper (/Users/joshuadinh/Local Sites/practice/app/public/wp-content/plugins/BlockForm/node_modules/cosmiconfig/dist/cacheWrapper.js:16:18)\n    at async Explorer.search (/Users/joshuadinh/Local Sites/practice/app/public/wp-content/plugins/BlockForm/node_modules/cosmiconfig/dist/Explorer.js:27:20)\n    at async loadConfig (/Users/joshuadinh/Local Sites/practice/app/public/wp-content/plugins/BlockForm/node_modules/postcss-loader/dist/utils.js:66:16)\n    at async Object.loader (/Users/joshuadinh/Local Sites/practice/app/public/wp-content/plugins/BlockForm/node_modules/postcss-loader/dist/index.js:54:22)\n    at /Users/joshuadinh/Local Sites/practice/app/public/wp-content/plugins/BlockForm/node_modules/webpack/lib/NormalModule.js:316:20\n    at /Users/joshuadinh/Local Sites/practice/app/public/wp-content/plugins/BlockForm/node_modules/webpack/node_modules/loader-runner/lib/LoaderRunner.js:367:11\n    at /Users/joshuadinh/Local Sites/practice/app/public/wp-content/plugins/BlockForm/node_modules/webpack/node_modules/loader-runner/lib/LoaderRunner.js:233:18\n    at context.callback (/Users/joshuadinh/Local Sites/practice/app/public/wp-content/plugins/BlockForm/node_modules/webpack/node_modules/loader-runner/lib/LoaderRunner.js:111:13)\n    at Object.loader (/Users/joshuadinh/Local Sites/practice/app/public/wp-content/plugins/BlockForm/node_modules/postcss-loader/dist/index.js:56:7)");
 
 /***/ }),
 
@@ -11140,26 +11071,7 @@ const schema = yup__WEBPACK_IMPORTED_MODULE_0__["object"]().shape({
   ExpiryDate: yup__WEBPACK_IMPORTED_MODULE_0__["string"]().typeError("Somethings fishy about this.").required(""),
   Cvv: yup__WEBPACK_IMPORTED_MODULE_0__["string"]().typeError("Ooops.. Try 3 digits").required(),
   anonymous: false
-}); // // Payment Card Details
-// export const PaymentSchema = yup.object().shape({
-//   //Disable letters on card input
-//   CreditCardNumber: yup
-//     .string()
-//     .test("exact", "Must be 16 digits", (val) => val.length === 16)
-//     .typeError("Looks like you forgot some numbers")
-//     .required(),
-//   //Apply date formating
-//   ExpiryDate: yup
-//     .string()
-//     .typeError("Somethings fishy about this.")
-//     .required(""),
-//   Cvv: yup
-//     .string()
-//     .test("exact", "Must be 3 digits", (val) => val.length === 3)
-//     .typeError("Ooops.. Try 3 digits")
-//     .required(),
-//   anonymous: false,
-// });
+});
 
 /***/ }),
 

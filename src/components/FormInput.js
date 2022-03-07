@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useFormContext } from "react-hook-form";
 
 export default function FormInput(props) {
@@ -26,6 +27,13 @@ export default function FormInput(props) {
         />
         <p className="error__message">{error}</p>
       </div>
+=======
+export default function FormInput() {
+  return (
+    <div>
+      <label></label>
+      <input />
+>>>>>>> 7c61376428bc6f34fda2e0750632a8eff81a0045
     </div>
   );
 }
