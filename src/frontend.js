@@ -20,7 +20,7 @@ divsToUpdate.forEach((div) => {
 
 function OurComponent(props) {
   const [step, setStep] = useState(0);
-  const methods = useForm({ resolver: yupResolver(schema) });
+  const methods = useForm({ mode: "all", resolver: yupResolver(schema) });
 
   function displaySteps() {
     switch (step) {
