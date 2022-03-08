@@ -5,15 +5,17 @@ import Button from "./Button";
 
 const Form = (props) => {
   const { step } = useContext(StepContext);
-  const { children } = props;
   const methods = useFormContext();
+
+  const { children } = props;
+  const { handleSubmit } = methods;
 
   const onSubmit = (data) => console.log(data);
 
   const onErrors = (errors) => console.error(errors);
 
   return (
-    <form className="form" onSubmit={methods.handleSubmit(onSubmit, onErrors)}>
+    <form className="form" onSubmit={handleSubmit(onSubmit, onErrors)}>
       {/* Renders Input Components */}
       {children}
       {/* If current step is less than or equal to 1 display button to proceed. Otherwise display submit button */}
