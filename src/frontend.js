@@ -7,7 +7,7 @@ import Step2 from "./steps/Step2";
 import Result from "./steps/Result";
 import StepContext from "./context/StepContext";
 import { useForm, FormProvider } from "react-hook-form";
-import { schema } from "./schema/schema";
+import { paymentSchema, userSchema } from "./schema/schema";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 const divsToUpdate = document.querySelectorAll(".boilerplate-update-me");
@@ -20,7 +20,10 @@ divsToUpdate.forEach((div) => {
 
 function OurComponent(props) {
   const [step, setStep] = useState(0);
-  const methods = useForm({ mode: "onBlur", resolver: yupResolver(schema) });
+  const methods = useForm({
+    mode: "all",
+    resolver: yupResolver(userSchema, paymentSchema),
+  });
 
   function displaySteps() {
     switch (step) {
