@@ -7,8 +7,7 @@ function renderButton(step, isValid, handleClick) {
     case 0:
       return (
         <button
-          id="form__button"
-          className={`form__button`}
+          id={!isValid ? "form__button__invalid" : "form__button"}
           type="submit"
           onClick={(event) => handleClick(event)}
           disabled={!isValid}
@@ -20,8 +19,7 @@ function renderButton(step, isValid, handleClick) {
     case 1:
       return (
         <button
-          id="form__button"
-          className={`form__button`}
+          id={!isValid ? "form__button__invalid" : "form__button"}
           type="submit"
           onSubmit={(event) => handleClick(event)}
           disabled={!isValid}
