@@ -19,7 +19,7 @@ const Form = (props) => {
       {/* Renders Input Components */}
       {children}
       {/* If current step is less than or equal to 1 display button to proceed. Otherwise display submit button */}
-      {step <= 1 ? <Button /> : <input type="submit" />}
+      <Button onSubmit={handleSubmit(onSubmit, onErrors)} />
     </form>
   );
 };
