@@ -1,6 +1,69 @@
-.makeUpYourBlockTypeName {
-  background-color: #b8c9f8;
-  border: 1px solid #94a9e2;
-  border-radius: 5px;
-  padding: 20px;
+.form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: whitesmoke;
+  padding: 15px 40px 30px;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  .form__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 142px;
+    width: 100%;
+
+    h2 {
+      font-weight: 700;
+      text-align: center;
+    }
+  }
+  #form__button {
+    height: 60px;
+    width: 100%;
+    margin: 0 auto;
+    background: #69b868;
+    color: whitesmoke;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 0 10px 0 rgb(105 184 104 / 50%);
+    &:hover {
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px,
+        rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    }
+  }
+}
+
+.form__group {
+  display: flex;
+  margin: 10px;
+  label {
+    min-width: 10rem;
+    margin: 10px 0;
+    color: #69b868;
+    font-weight: 700;
+    font-size: 1.15rem;
+  }
+  .form__group__wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    .form__input {
+      height: 56px;
+      width: 100%;
+      padding: 10px;
+      margin: 0;
+      font-size: 20px;
+      border: 1px solid rgb(189, 187, 187);
+      border-radius: 15px;
+      box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px,
+        rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    }
+  }
+  .error__message {
+    height: 50px;
+    color: red;
+    font-size: 0.85rem;
+  }
 }
