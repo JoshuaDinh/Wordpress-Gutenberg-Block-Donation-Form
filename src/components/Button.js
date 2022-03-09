@@ -2,11 +2,11 @@ import { useContext } from "react";
 import StepContext from "../context/StepContext";
 import { useFormContext } from "react-hook-form";
 
-export default function Button() {
+export default function Button({ onSubmit }) {
   const { step, setStep } = useContext(StepContext);
 
   const methods = useFormContext();
-  const { isValid, errors, dirtyFields, isDirty } = methods.formState;
+  const { isValid, errors, dirtyFields } = methods.formState;
 
   function handleClick(event) {
     event.preventDefault();
@@ -16,23 +16,40 @@ export default function Button() {
     }
   }
 
-  console.log(isValid);
+  function validateStep1() {
+    if (
+      !dirtyFields.FirstName ||
+      !dirtyFields.LastName ||
+      !dirtyFields.Email ||
+      errors?.FirstName ||
+      errors?.LastName ||
+      errors?.Email
+    ) {
+      return true;
+    }
+  }
+  function validateStep2() {
+    if (
+      !dirtyFields.CardNumber ||
+      !dirtyFields.Expirtydate ||
+      !dirtyFields.cvv ||
+      errors?.CardNumber ||
+      errors?.Expirtydate ||
+      errors?.cvv
+    ) {
+      return true;
+    }
+  }
+
   switch (step) {
     case 0:
       return (
         <button
-          id={!isValid ? "form__button__invalid" : "form__button"}
+          id={validateStep1() ? "form__button__invalid" : "form__button"}
           type="button"
           onClick={(event) => handleClick(event)}
-          // Disables button if no input has been typed in or if the listed inputs contain errors.
-          disabled={
-            !dirtyFields.FirstName ||
-            !dirtyFields.LastName ||
-            !dirtyFields.Email ||
-            errors?.FirstName ||
-            errors?.LastName ||
-            errors?.Email
-          }
+          // Disables button if input has not been selected or if the listed inputs contain errors.
+          disabled={validateStep1()}
         >
           Next Step
         </button>
@@ -43,18 +60,16 @@ export default function Button() {
         <button
           id={!isValid ? "form__button__invalid" : "form__button"}
           type="submit"
-          disabled={
-            !dirtyFields.CardNumber ||
-            !dirtyFields.Expirtydate ||
-            !dirtyFields.cvv ||
-            errors?.CardNumber ||
-            errors?.Expirtydate ||
-            errors?.cvv
-          }
+          onSubmit={onSubmit}
+          // Disables button form is inValid.
+          disabled={!isValid}
         >
           Submit
         </button>
       );
+      break;
+    case 2:
+      return <h4>Form Completed</h4>;
       break;
   }
   return <>{renderButton()}</>;
