@@ -10,12 +10,13 @@ export default function Button() {
 
   function handleClick(event) {
     event.preventDefault();
+    // Do not proceed to next step if input listed below contain errors.
     if (!errors?.FirstName || !errors?.LastName || !errors?.Email) {
       setStep(step + 1);
     }
   }
 
-  console.log(dirtyFields);
+  console.log(isValid);
   switch (step) {
     case 0:
       return (
@@ -23,9 +24,14 @@ export default function Button() {
           id={!isValid ? "form__button__invalid" : "form__button"}
           type="button"
           onClick={(event) => handleClick(event)}
-          // Disables button if no input has been typed in or if the listed inputs contain errors
+          // Disables button if no input has been typed in or if the listed inputs contain errors.
           disabled={
-            !isDirty || errors?.FirstName || errors?.LastName || errors?.Email
+            !dirtyFields.FirstName ||
+            !dirtyFields.LastName ||
+            !dirtyFields.Email ||
+            errors?.FirstName ||
+            errors?.LastName ||
+            errors?.Email
           }
         >
           Next Step
@@ -37,7 +43,14 @@ export default function Button() {
         <button
           id={!isValid ? "form__button__invalid" : "form__button"}
           type="submit"
-          disabled={!isValid}
+          disabled={
+            !dirtyFields.CardNumber ||
+            !dirtyFields.Expirtydate ||
+            !dirtyFields.cvv ||
+            errors?.CardNumber ||
+            errors?.Expirtydate ||
+            errors?.cvv
+          }
         >
           Submit
         </button>
