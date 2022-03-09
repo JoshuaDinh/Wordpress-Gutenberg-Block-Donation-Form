@@ -1,16 +1,12 @@
-import Form from "./components/Form";
 import "./index.scss";
-import Step1 from "./steps/Step1";
-import Step2 from "./steps/Step2";
-import Result from "./steps/Result";
-
+import { useState } from "react";
 wp.blocks.registerBlockType("makeupnamespace/make-up-block-name", {
   title: "Boilerplate Block",
   icon: "welcome-learn-more",
   category: "common",
   attributes: {
-    skyColor: { type: "string" },
-    grassColor: { type: "string" },
+    title: { type: "string" },
+    img: { type: "string" },
   },
   edit: EditComponent,
   save: function () {
@@ -19,44 +15,87 @@ wp.blocks.registerBlockType("makeupnamespace/make-up-block-name", {
 });
 
 function EditComponent(props) {
+  const [displayOnly, setDisplayOnly] = useState({
+    input1: false,
+    input2: false,
+    input3: false,
+  });
+  const { attributes, setAttributes } = props;
+
+  function updateTitle(event) {
+    setAttributes({ title: event.target.value });
+  }
+
+  console.log(displayOnly);
   return (
     <form className="form">
       <div className="form__header">
-        <h2>GiveWP</h2>
-        <img alt="img" src="" />
+        <input
+          className="form__title__input"
+          type="text"
+          placeholder="Please Enter a title for the form.."
+          onChange={updateTitle}
+          value={attributes.title}
+        />
+        <p>(Please upload an image for your logo.)</p>
+        <input className="form__file__upload" type="File" />
       </div>
-      <>
-        <div className="form__group">
-          <label className="form__label">First Name:</label>
-          <div className="form__group__wrapper">
-            <input
-              className="form__input"
-              text="text"
-              placeholder="First Name"
-            />
-            <p className="error__message"></p>
-          </div>
+
+      <div className="form__group">
+        <label className="form__label">First Name:</label>
+        <div
+          className="form__group__wrapper"
+          onMouseEnter={() => setDisplayOnly({ ...displayOnly, input1: true })}
+        >
+          <input
+            className="form__input"
+            text="text"
+            placeholder={
+              displayOnly.input1
+                ? "Field locked unable to edit.."
+                : "First Name"
+            }
+            disabled={true}
+          />
+          <p className="error__message"></p>
         </div>
-        <div className="form__group">
-          <label className="form__label">Last Name:</label>
-          <div className="form__group__wrapper">
-            <input
-              className="form__input"
-              text="text"
-              placeholder="Last Name"
-            />
-            <p className="error__message"></p>
-          </div>
+      </div>
+      <div
+        className="form__group"
+        onMouseEnter={() => setDisplayOnly({ ...displayOnly, input2: true })}
+      >
+        <label className="form__label">Last Name:</label>
+        <div className="form__group__wrapper">
+          <input
+            className="form__input"
+            text="text"
+            placeholder={
+              displayOnly.input2 ? "Field locked unable to edit.." : "Last Name"
+            }
+            disabled={true}
+          />
+          <p className="error__message"></p>
         </div>
-        <div className="form__group">
-          <label className="form__label">Email:</label>
-          <div className="form__group__wrapper">
-            <input className="form__input" text="text" placeholder="Email" />
-            <p className="error__message"></p>
-          </div>
+      </div>
+      <div
+        className="form__group"
+        onMouseEnter={() => setDisplayOnly({ ...displayOnly, input3: true })}
+      >
+        <label className="form__label">Email:</label>
+        <div className="form__group__wrapper">
+          <input
+            className="form__input"
+            text="text"
+            placeholder={
+              displayOnly.input3 ? "Field locked unable to edit.." : "Email"
+            }
+            disabled={true}
+          />
+          <p className="error__message"></p>
         </div>
-      </>
-      <button id="form__button" tyle="submit">
+      </div>
+
+      <button id="form__button" disabled={true}>
         Next Step
       </button>
     </form>
