@@ -2,15 +2,31 @@ import { useContext } from "react";
 import StepContext from "../context/StepContext";
 import { useFormContext } from "react-hook-form";
 
-function renderButton(step, isValid, handleClick) {
+export default function Button() {
+  const { step, setStep } = useContext(StepContext);
+
+  const methods = useFormContext();
+  const { isValid, errors, dirtyFields, isDirty } = methods.formState;
+
+  function handleClick(event) {
+    event.preventDefault();
+    if (!errors?.FirstName || !errors?.LastName || !errors?.Email) {
+      setStep(step + 1);
+    }
+  }
+
+  console.log(dirtyFields);
   switch (step) {
     case 0:
       return (
         <button
           id={!isValid ? "form__button__invalid" : "form__button"}
-          type="submit"
+          type="button"
           onClick={(event) => handleClick(event)}
-          disabled={!isValid}
+          // Disables button if no input has been typed in or if the listed inputs contain errors
+          disabled={
+            !isDirty || errors?.FirstName || errors?.LastName || errors?.Email
+          }
         >
           Next Step
         </button>
@@ -21,7 +37,6 @@ function renderButton(step, isValid, handleClick) {
         <button
           id={!isValid ? "form__button__invalid" : "form__button"}
           type="submit"
-          onSubmit={(event) => handleClick(event)}
           disabled={!isValid}
         >
           Submit
@@ -29,18 +44,5 @@ function renderButton(step, isValid, handleClick) {
       );
       break;
   }
-}
-
-export default function Button() {
-  const { step, setStep } = useContext(StepContext);
-
-  const methods = useFormContext();
-  const { isValid } = methods.formState;
-
-  function handleClick(event) {
-    event.preventDefault();
-    isValid && setStep(step + 1);
-  }
-  console.log(step);
-  return <>{renderButton(step, isValid, handleClick)}</>;
+  return <>{renderButton()}</>;
 }
