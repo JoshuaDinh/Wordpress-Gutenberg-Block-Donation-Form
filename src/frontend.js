@@ -7,9 +7,11 @@ import Step2 from "./steps/Step2";
 import Result from "./steps/Result";
 import StepContext from "./context/StepContext";
 import { useForm, FormProvider } from "react-hook-form";
-import { paymentSchema, userSchema } from "./schema/schema";
+import { schema } from "./schema/schema";
 import { yupResolver } from "@hookform/resolvers/yup";
-
+import PropsContext from "./context/PropsContext";
+import Particles from "react-tsparticles";
+import StepCount from "./components/StepCount";
 const divsToUpdate = document.querySelectorAll(".boilerplate-update-me");
 
 divsToUpdate.forEach((div) => {
@@ -22,7 +24,7 @@ function OurComponent(props) {
   const [step, setStep] = useState(0);
   const methods = useForm({
     mode: "all",
-    resolver: yupResolver(userSchema, paymentSchema),
+    resolver: yupResolver(schema),
   });
 
   function displaySteps() {
@@ -39,11 +41,15 @@ function OurComponent(props) {
     }
   }
 
+  console.log(props);
   return (
     <FormProvider {...methods}>
-      <StepContext.Provider value={{ step, setStep }}>
-        <Form>{displaySteps()}</Form>
-      </StepContext.Provider>
+      <PropsContext.Provider value={props}>
+        <StepContext.Provider value={{ step, setStep }}>
+          <StepCount />
+          <Form>{displaySteps()}</Form>
+        </StepContext.Provider>
+      </PropsContext.Provider>
     </FormProvider>
   );
 }
