@@ -1,11 +1,20 @@
 import "./index.scss";
 import { useState } from "react";
+import {
+  useBlockProps,
+  PanelBody,
+  PanelRow,
+  InspectorControls,
+  ToggleControl,
+} from "@wordpress/block-editor";
+import { __ } from "@wordpress/i18n";
+
 wp.blocks.registerBlockType("makeupnamespace/make-up-block-name", {
   title: "Boilerplate Block",
   icon: "welcome-learn-more",
   category: "common",
   attributes: {
-    title: { type: "string" },
+    title: { type: "string", source: "children", selector: "h2" },
     img: { type: "string" },
   },
   edit: EditComponent,
@@ -28,76 +37,47 @@ function EditComponent(props) {
 
   console.log(displayOnly);
   return (
-    <form className="form">
-      <div className="form__header">
-        <input
-          className="form__title__input"
-          type="text"
-          placeholder="Please Enter a title for the form.."
-          onChange={updateTitle}
-          value={attributes.title}
-        />
-        <p>(Please upload an image for your logo.)</p>
-        <input className="form__file__upload" type="File" />
-      </div>
-
-      <div className="form__group">
-        <label className="form__label">First Name:</label>
+    <>
+      <InspectorControls></InspectorControls>
+      <form className="form" {...useBlockProps}>
+        <div className="form__header">
+          <h2>GiveWP</h2>
+          <img alt="img" src="image" />
+        </div>
+        <div className="form__group">
+          <div className="form__label">First Name:</div>
+          <div
+            className="form__group__wrapper"
+            onMouseEnter={() =>
+              setDisplayOnly({ ...displayOnly, input1: true })
+            }
+          >
+            <div className="form__input">First Name</div>
+          </div>
+        </div>
         <div
-          className="form__group__wrapper"
-          onMouseEnter={() => setDisplayOnly({ ...displayOnly, input1: true })}
+          className="form__group"
+          onMouseEnter={() => setDisplayOnly({ ...displayOnly, input2: true })}
         >
-          <input
-            className="form__input"
-            text="text"
-            placeholder={
-              displayOnly.input1
-                ? "Field locked unable to edit.."
-                : "First Name"
-            }
-            disabled={true}
-          />
-          <p className="error__message"></p>
+          <div className="form__label">Last Name:</div>
+          <div className="form__group__wrapper">
+            <div className="form__input">Last Name</div>
+          </div>
         </div>
-      </div>
-      <div
-        className="form__group"
-        onMouseEnter={() => setDisplayOnly({ ...displayOnly, input2: true })}
-      >
-        <label className="form__label">Last Name:</label>
-        <div className="form__group__wrapper">
-          <input
-            className="form__input"
-            text="text"
-            placeholder={
-              displayOnly.input2 ? "Field locked unable to edit.." : "Last Name"
-            }
-            disabled={true}
-          />
-          <p className="error__message"></p>
+        <div
+          className="form__group"
+          onMouseEnter={() => setDisplayOnly({ ...displayOnly, input3: true })}
+        >
+          <div className="form__label">Email:</div>
+          <div className="form__group__wrapper">
+            <div className="form__input">Email</div>
+          </div>
         </div>
-      </div>
-      <div
-        className="form__group"
-        onMouseEnter={() => setDisplayOnly({ ...displayOnly, input3: true })}
-      >
-        <label className="form__label">Email:</label>
-        <div className="form__group__wrapper">
-          <input
-            className="form__input"
-            text="text"
-            placeholder={
-              displayOnly.input3 ? "Field locked unable to edit.." : "Email"
-            }
-            disabled={true}
-          />
-          <p className="error__message"></p>
-        </div>
-      </div>
 
-      <button id="form__button" disabled={true}>
-        Next Step
-      </button>
-    </form>
+        <div id="form__button" disabled={true}>
+          Next Step
+        </div>
+      </form>
+    </>
   );
 }
