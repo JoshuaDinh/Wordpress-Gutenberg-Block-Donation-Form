@@ -1,11 +1,11 @@
 .form {
-  position: relative;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   background: whitesmoke;
-  padding: 15px 40px 30px;
-  border-radius: 15px;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  border: 1px solid lightgrey;
+  padding: 20px 50px 37px;
+  border-radius: 5px;
 
   #form__button {
     height: 60px;
@@ -13,12 +13,8 @@
     margin: 0 auto;
     background: #69b868;
     color: whitesmoke;
-    border-radius: 15px;
+    border-radius: 5px;
     box-shadow: 0 0 10px 0 rgb(105 184 104 / 50%);
-    &:hover {
-      box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px,
-        rgba(0, 0, 0, 0.23) 0px 3px 6px;
-    }
   }
   #form__button__invalid {
     height: 60px;
@@ -32,20 +28,26 @@
 }
 
 .form__header {
-  height: 142px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid lightgrey;
+  height: 128px;
   width: 100%;
+  margin-bottom: 30px;
 
   h2 {
-    position: relative;
     font-weight: 700;
-    text-align: center;
-    z-index: 1;
+  }
+  img {
+    height: 70px;
   }
 }
 
 .form__group {
   display: flex;
   margin: 10px;
+
   .form__label {
     min-width: 10rem;
     margin: 10px 0;
@@ -61,13 +63,14 @@
     .form__input {
       height: 50px;
       width: 100%;
-      border: 1px solid rgb(189, 187, 187);
-      border-radius: 15px;
-      box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px,
-        rgba(0, 0, 0, 0.24) 0px 1px 2px;
+      color: grey;
+      padding: 10px;
+      border: 1px solid lightgrey;
+      border-radius: 5px;
     }
     .error__message {
       height: 50px;
+      padding-left: 5px;
       color: red;
       font-size: 0.85rem;
     }
