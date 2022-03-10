@@ -1,12 +1,13 @@
 import "./index.scss";
 import { useState } from "react";
+import { InspectorControls, useBlockProps } from "@wordpress/block-editor";
 import {
-  useBlockProps,
+  Panel,
   PanelBody,
-  PanelRow,
-  InspectorControls,
-  ToggleControl,
-} from "@wordpress/block-editor";
+  CheckboxControl,
+  TextControl,
+  MediaPlaceholder,
+} from "@wordpress/components";
 import { __ } from "@wordpress/i18n";
 
 wp.blocks.registerBlockType("makeupnamespace/make-up-block-name", {
@@ -16,6 +17,7 @@ wp.blocks.registerBlockType("makeupnamespace/make-up-block-name", {
   attributes: {
     title: { type: "string", source: "children", selector: "h2" },
     img: { type: "string" },
+    checked: { type: "" },
   },
   edit: EditComponent,
   save: function () {
@@ -24,60 +26,57 @@ wp.blocks.registerBlockType("makeupnamespace/make-up-block-name", {
 });
 
 function EditComponent(props) {
-  const [displayOnly, setDisplayOnly] = useState({
-    input1: false,
-    input2: false,
-    input3: false,
-  });
   const { attributes, setAttributes } = props;
+  const [isChecked, setChecked] = useState(false);
 
   function updateTitle(event) {
     setAttributes({ title: event.target.value });
   }
+  function updateCheckedField(event) {
+    setAttributes({ checked: event.target.value });
+  }
 
-  console.log(displayOnly);
   return (
-    <>
-      <InspectorControls></InspectorControls>
-      <form className="form" {...useBlockProps}>
+    <div {...useBlockProps}>
+      <InspectorControls>
+        <Panel>
+          <PanelBody title="Form Settings">
+            <TextControl label="Title" value={attributes.title} />
+            <CheckboxControl
+              label="Allow anonymous donations"
+              // checked={isChecked}
+              // onChange={updateCheckedField}
+            />
+          </PanelBody>
+        </Panel>
+      </InspectorControls>
+      <form className="form">
         <div className="form__header">
           <h2>GiveWP</h2>
           <img alt="img" src="image" />
         </div>
         <div className="form__group">
           <div className="form__label">First Name:</div>
-          <div
-            className="form__group__wrapper"
-            onMouseEnter={() =>
-              setDisplayOnly({ ...displayOnly, input1: true })
-            }
-          >
+          <div className="form__group__wrapper">
             <div className="form__input">First Name</div>
           </div>
         </div>
-        <div
-          className="form__group"
-          onMouseEnter={() => setDisplayOnly({ ...displayOnly, input2: true })}
-        >
+        <div className="form__group">
           <div className="form__label">Last Name:</div>
           <div className="form__group__wrapper">
             <div className="form__input">Last Name</div>
           </div>
         </div>
-        <div
-          className="form__group"
-          onMouseEnter={() => setDisplayOnly({ ...displayOnly, input3: true })}
-        >
+        <div className="form__group">
           <div className="form__label">Email:</div>
           <div className="form__group__wrapper">
             <div className="form__input">Email</div>
           </div>
         </div>
-
         <div id="form__button" disabled={true}>
           Next Step
         </div>
       </form>
-    </>
+    </div>
   );
 }
