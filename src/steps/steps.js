@@ -1,5 +1,6 @@
 import FormInput from "../components/FormInput";
 import { useFormContext } from "react-hook-form";
+import ExpInput from "../components/ExpInput";
 
 export function Step1() {
   const methods = useFormContext();
@@ -48,18 +49,30 @@ export function Step2() {
       <FormInput
         name="ExpiryDate"
         placeHolder="Exp. Date"
-        label="Exp. Date:"
-        text="text"
+        label="MM/YY:"
+        text="date"
         error={errors?.ExpiryDate?.message}
       />
-      <FormInput
-        name="cvv"
-        placeHolder="cvv"
-        label="cvv:"
-        number="number"
-        error={errors?.cvv?.message}
-        value={true}
-      />
+
+      {/* <ExpInput label="Exp. Date:" /> */}
+      <div className="form__card__container">
+        <FormInput
+          name="ExpiryDate"
+          placeHolder="Exp. Date"
+          label="MM/YY:"
+          text="date"
+          error={errors?.ExpiryDate?.message}
+        />
+
+        <FormInput
+          name="cvv"
+          placeHolder="cvv"
+          label="cvv: "
+          number="number"
+          error={errors?.cvv?.message}
+          value={true}
+        />
+      </div>
     </>
   );
 }

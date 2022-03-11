@@ -25,17 +25,27 @@
 }
 
 .form {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   background: whitesmoke;
   border: 1px solid lightgrey;
   padding: 20px 50px 37px;
 }
+.form .form__anonymous {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.form .form__anonymous .form__label__wrapper .form__anonymous__label {
+  flex: 1;
+  font-size: 0.75rem;
+  color: grey;
+}
+.form .form__anonymous .form__checkbox {
+  border: 1px solid lightgrey;
+}
 .form #form__button {
   height: 60px;
   width: 100%;
-  margin: 0 auto;
+  margin: 15px auto;
   background: #69b868;
   color: whitesmoke;
   border-radius: 5px;
@@ -44,7 +54,7 @@
 .form #form__button__invalid {
   height: 60px;
   width: 100%;
-  margin: 0 auto;
+  margin: 15px auto;
   background: rgba(105, 184, 104, 0.7);
   color: whitesmoke;
   border-radius: 15px;
@@ -56,47 +66,50 @@
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid lightgrey;
-  height: 128px;
+  height: 70px;
   width: 100%;
   margin-bottom: 30px;
 }
-.form__header h2 {
+.form__header h3 {
   font-weight: 700;
 }
 .form__header img {
-  height: 70px;
+  height: 50px;
 }
 
 .form__group {
   display: flex;
+  justify-content: space-between;
   margin: 10px;
 }
 .form__group .form__label {
-  min-width: 10rem;
-  margin: 10px 0;
+  width: 50%;
+  margin: 10px;
   color: #69b868;
   font-weight: 700;
   font-size: 1.15rem;
 }
 .form__group .form__group__wrapper {
-  flex: 1;
-  height: 100px;
+  width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 .form__group .form__group__wrapper .form__input {
-  height: 50px;
   width: 100%;
   color: grey;
-  padding: 10px;
   border: 1px solid lightgrey;
   border-radius: 5px;
 }
 .form__group .form__group__wrapper .error__message {
-  height: 50px;
+  height: 25px;
   padding-left: 5px;
   color: red;
   font-size: 0.85rem;
+}
+
+.form__card__container {
+  display: flex;
 }
 
 /*# sourceMappingURL=frontend.css.map*/

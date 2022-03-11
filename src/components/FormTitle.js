@@ -7,7 +7,7 @@ export default function FormTitle() {
 
   return (
     <div className="form__header">
-      <h2>{title}</h2>
+      <h3>{title}</h3>
       <img
         className="form__image"
         alt="img"
