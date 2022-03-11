@@ -18,6 +18,21 @@ divsToUpdate.forEach((div) => {
   div.classList.remove("boilerplate-update-me");
 });
 
+// Function determines the inputs to be displayed within the form.
+function displaySteps(step) {
+  switch (step) {
+    case 0:
+      return <Step1 />;
+      break;
+    case 1:
+      return <Step2 />;
+      break;
+    case 2:
+      return <Result />;
+      break;
+  }
+}
+
 function OurComponent(props) {
   const [step, setStep] = useState(0);
   const methods = useForm({
@@ -25,25 +40,12 @@ function OurComponent(props) {
     resolver: yupResolver(schema),
   });
 
-  function displaySteps() {
-    switch (step) {
-      case 0:
-        return <Step1 />;
-        break;
-      case 1:
-        return <Step2 />;
-        break;
-      case 2:
-        return <Result />;
-        break;
-    }
-  }
   return (
     <FormProvider {...methods}>
       <PropsContext.Provider value={props}>
         <StepContext.Provider value={{ step, setStep }}>
           <StepCount />
-          <Form>{displaySteps()}</Form>
+          <Form>{displaySteps(step)}</Form>
         </StepContext.Provider>
       </PropsContext.Provider>
     </FormProvider>
