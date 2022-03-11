@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "preview": "npm-run-all --parallel sync start",
-    "sync": "browser-sync start -p 'myexample.local' --files '**/*.php' 'build/*.js' 'build/*.css'",
+    "sync": "browser-sync start -p 'practice.local' --files '**/*.php' 'build/*.js' 'build/*.css'",
     "build": "wp-scripts build src/index.js src/frontend.js",
     "start": "wp-scripts start src/index.js src/frontend.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -17,12 +17,19 @@
     "@wordpress/scripts": "^17.0.0",
     "browser-sync": "^2.27.4",
     "eslint-plugin-react-hooks": "^4.3.0",
-    "npm-run-all": "^4.1.5"
+    "npm-run-all": "^4.1.5",
+    "ts-loader": "^9.2.7",
+    "typescript": "^4.6.2"
   },
   "dependencies": {
     "@hookform/resolvers": "^2.8.8",
-    "little-state-machine": "^4.2.3",
+    "@wordpress/block-editor": "^8.2.0",
+    "@wordpress/blocks": "^11.2.2",
+    "@wordpress/components": "^19.5.0",
+    "@wordpress/i18n": "^4.3.1",
+    "php-loader": "^0.2.0",
     "react-hook-form": "^7.27.1",
+    "react-tsparticles": "^1.42.0",
     "yup": "^0.32.11"
   }
 }

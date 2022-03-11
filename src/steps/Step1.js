@@ -5,28 +5,27 @@ export default function Step1() {
   const methods = useFormContext();
   const { errors } = methods.formState;
 
-  console.log(errors);
   return (
     <>
       <FormInput
         name="FirstName"
         placeHolder="First Name"
-        label="First Name"
-        type="text"
+        label="First Name:"
+        text="text"
         error={errors?.FirstName?.message}
       />
       <FormInput
         name="LastName"
         placeHolder="Last Name"
-        label="Last Name"
-        type="text"
+        label="Last Name:"
+        text="text"
         error={errors?.LastName?.message}
       />
       <FormInput
         name="Email"
-        placeHolder="Email"
+        placeHolder="Email:"
         label="Email"
-        type="email"
+        text="email"
         error={errors?.Email?.message}
       />
     </>

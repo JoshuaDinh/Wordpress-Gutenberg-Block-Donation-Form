@@ -3,8 +3,8 @@
 /*
   Plugin Name: Form Plugin
   Version: 1.0
-  Author: Brad
-  Author URI: https://github.com/LearnWebCode
+  Author: Josh
+  Author URI: 
 */
 
 if( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
@@ -37,9 +37,9 @@ class Boilerplate {
     
   }
 
-  function renderCallbackBasic($attributes) {
-    return '<div class="boilerplate-frontend">Hello, the sky is ' . $attributes['skyColor'] . ' and the grass is ' . $attributes['grassColor'] . '.</div>';
-  }
+   function renderCallbackBasic($attributes) {
+     return '<div class="boilerplate-frontend">Hello, the sky is ' . $attributes['skyColor'] . ' and the grass is ' . $attributes['grassColor'] . '.</div>';
+ }
 }
 
 $Boilerplate = new Boilerplate();

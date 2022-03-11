@@ -10,8 +10,8 @@ import { useForm, FormProvider } from "react-hook-form";
 import { schema } from "./schema/schema";
 import { yupResolver } from "@hookform/resolvers/yup";
 import PropsContext from "./context/PropsContext";
-import Particles from "react-tsparticles";
 import StepCount from "./components/StepCount";
+
 const divsToUpdate = document.querySelectorAll(".boilerplate-update-me");
 
 divsToUpdate.forEach((div) => {
@@ -26,7 +26,6 @@ function OurComponent(props) {
     mode: "all",
     resolver: yupResolver(schema),
   });
-
   function displaySteps() {
     switch (step) {
       case 0:
@@ -40,8 +39,6 @@ function OurComponent(props) {
         break;
     }
   }
-
-  console.log(props);
   return (
     <FormProvider {...methods}>
       <PropsContext.Provider value={props}>
