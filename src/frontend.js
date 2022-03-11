@@ -42,6 +42,7 @@ function Form(props) {
     resolver: yupResolver(schema),
   });
 
+  const { checkbox } = props;
   const { handleSubmit, isValid } = methods;
 
   // Increments Step state & submits form
@@ -64,11 +65,25 @@ function Form(props) {
             <FormTitle />
             {/* Renders Input Components */}
             {displaySteps(step)}
+
             <Button
               onSubmit={handleSubmit(onSubmit, onErrors)}
               step={step}
               setStep={setStep}
             />
+            {/* Displays anonymous donation field if enabled in block settings */}
+            {checkbox && (
+              <>
+                <div className="form__anonymous">
+                  <div className="form__label__wrapper">
+                    <label className="form__anonymous__label">
+                      Would you like to donate anonymously?
+                    </label>
+                  </div>
+                  <input type="checkbox" className="form__checkbox" />{" "}
+                </div>
+              </>
+            )}
           </form>
         </>
       </PropsContext.Provider>
