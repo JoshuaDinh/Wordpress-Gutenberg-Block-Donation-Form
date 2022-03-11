@@ -1,5 +1,5 @@
 import "./index.scss";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { InspectorControls, useBlockProps } from "@wordpress/block-editor";
 import {
   Panel,
@@ -16,9 +16,9 @@ wp.blocks.registerBlockType("makeupnamespace/make-up-block-name", {
   icon: "welcome-learn-more",
   category: "common",
   attributes: {
-    title: { type: "string" },
-    img: { type: "string" },
-    checked: { type: "" },
+    title: { type: "String" },
+    img: { type: "Boolean" },
+    checkbox: { type: "Boolean" },
   },
   edit: EditComponent,
   save: function () {
@@ -27,15 +27,13 @@ wp.blocks.registerBlockType("makeupnamespace/make-up-block-name", {
 });
 
 function EditComponent({ attributes, setAttributes }) {
-  const { title } = attributes;
+  const { title, checkbox } = attributes;
   const [step, setStep] = useState(0);
+  const [isChecked, setIsChecked] = useState(false);
 
+  // Updates Title of form
   function updateTitle(newTitle) {
     setAttributes({ title: newTitle });
-  }
-
-  function updateCheckedField(isChecked) {
-    setAttributes({ checked: isChecked });
   }
 
   function updateSteps() {
@@ -45,6 +43,12 @@ function EditComponent({ attributes, setAttributes }) {
       return setStep(0);
     }
   }
+
+  // Updates checkbox status
+  useEffect(() => {
+    setAttributes({ checkbox: isChecked });
+  }, [isChecked]);
+
   return (
     <div>
       <InspectorControls>
@@ -53,8 +57,8 @@ function EditComponent({ attributes, setAttributes }) {
             <TextControl label="Title" value={title} onChange={updateTitle} />
             <CheckboxControl
               label="Allow anonymous donations"
-              // checked={isChecked}
-              // onChange={updateCheckedField}
+              checked={isChecked}
+              onChange={setIsChecked}
             />
           </PanelBody>
         </Panel>
