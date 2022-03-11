@@ -37,12 +37,11 @@ function EditComponent(props) {
   }
 
   function updateSteps() {
-    if (step <= 2) {
+    if (step <= 1) {
       return setStep(step + 1);
-    } else if (step === 3) {
+    } else {
       return setStep(0);
     }
-    console.log(step);
   }
 
   return (
@@ -77,7 +76,7 @@ function EditComponent(props) {
           className={`step ${step === 2 && "step__active"}`}
           onClick={() => setStep(2)}
         >
-          {step > 2 ? "Completed" : "Result"}
+          {step > 2 ? "Submitted" : "Result"}
         </div>
       </div>
       <form className="form">
@@ -105,11 +104,10 @@ function EditComponent(props) {
               <div className="form__group__wrapper">
                 <div className="form__input">Email</div>
               </div>
-            </div>{" "}
+            </div>
           </>
-        ) : (
+        ) : step === 1 ? (
           <>
-            {" "}
             <div className="form__group">
               <div className="form__label">Card Number::</div>
               <div className="form__group__wrapper">
@@ -127,14 +125,16 @@ function EditComponent(props) {
               <div className="form__group__wrapper">
                 <div className="form__input">cvv:</div>
               </div>
-            </div>{" "}
+            </div>
           </>
+        ) : (
+          <h2>Result</h2>
         )}
 
         {/* Step 2 */}
 
         <div id="form__button" onClick={() => updateSteps()}>
-          Next Step
+          {step <= 1 ? "Next Step" : "Form Submitted!"}
         </div>
       </form>
     </div>
