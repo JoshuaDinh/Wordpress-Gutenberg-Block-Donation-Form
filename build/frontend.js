@@ -11249,17 +11249,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-dom */ "react-dom");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _components_Form__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/Form */ "./src/components/Form.js");
-/* harmony import */ var _steps_Step1__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./steps/Step1 */ "./src/steps/Step1.js");
-/* harmony import */ var _steps_Step2__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./steps/Step2 */ "./src/steps/Step2.js");
-/* harmony import */ var _steps_Result__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./steps/Result */ "./src/steps/Result.js");
-/* harmony import */ var _context_StepContext__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./context/StepContext */ "./src/context/StepContext.js");
-/* harmony import */ var react_hook_form__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-hook-form */ "./node_modules/react-hook-form/dist/index.esm.mjs");
-/* harmony import */ var _schema_schema__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./schema/schema */ "./src/schema/schema.js");
-/* harmony import */ var _hookform_resolvers_yup__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @hookform/resolvers/yup */ "./node_modules/@hookform/resolvers/yup/dist/yup.module.js");
-/* harmony import */ var _context_PropsContext__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./context/PropsContext */ "./src/context/PropsContext.js");
-/* harmony import */ var _components_StepCount__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/StepCount */ "./src/components/StepCount.js");
-
-
+/* harmony import */ var _steps_steps__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./steps/steps */ "./src/steps/steps.js");
+/* harmony import */ var _context_StepContext__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./context/StepContext */ "./src/context/StepContext.js");
+/* harmony import */ var react_hook_form__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-hook-form */ "./node_modules/react-hook-form/dist/index.esm.mjs");
+/* harmony import */ var _schema_schema__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./schema/schema */ "./src/schema/schema.js");
+/* harmony import */ var _hookform_resolvers_yup__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @hookform/resolvers/yup */ "./node_modules/@hookform/resolvers/yup/dist/yup.module.js");
+/* harmony import */ var _context_PropsContext__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./context/PropsContext */ "./src/context/PropsContext.js");
+/* harmony import */ var _components_StepCount__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/StepCount */ "./src/components/StepCount.js");
 
 
 
@@ -11281,35 +11277,35 @@ divsToUpdate.forEach(div => {
 
 function OurComponent(props) {
   const [step, setStep] = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])(0);
-  const methods = Object(react_hook_form__WEBPACK_IMPORTED_MODULE_9__["useForm"])({
+  const methods = Object(react_hook_form__WEBPACK_IMPORTED_MODULE_7__["useForm"])({
     mode: "all",
-    resolver: Object(_hookform_resolvers_yup__WEBPACK_IMPORTED_MODULE_11__["yupResolver"])(_schema_schema__WEBPACK_IMPORTED_MODULE_10__["schema"])
+    resolver: Object(_hookform_resolvers_yup__WEBPACK_IMPORTED_MODULE_9__["yupResolver"])(_schema_schema__WEBPACK_IMPORTED_MODULE_8__["schema"])
   });
 
   function displaySteps() {
     switch (step) {
       case 0:
-        return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_steps_Step1__WEBPACK_IMPORTED_MODULE_5__["default"], null);
+        return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_steps_steps__WEBPACK_IMPORTED_MODULE_5__["Step1"], null);
         break;
 
       case 1:
-        return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_steps_Step2__WEBPACK_IMPORTED_MODULE_6__["default"], null);
+        return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_steps_steps__WEBPACK_IMPORTED_MODULE_5__["Step2"], null);
         break;
 
       case 2:
-        return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_steps_Result__WEBPACK_IMPORTED_MODULE_7__["default"], null);
+        return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_steps_steps__WEBPACK_IMPORTED_MODULE_5__["Result"], null);
         break;
     }
   }
 
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(react_hook_form__WEBPACK_IMPORTED_MODULE_9__["FormProvider"], methods, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_context_PropsContext__WEBPACK_IMPORTED_MODULE_12__["default"].Provider, {
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(react_hook_form__WEBPACK_IMPORTED_MODULE_7__["FormProvider"], methods, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_context_PropsContext__WEBPACK_IMPORTED_MODULE_10__["default"].Provider, {
     value: props
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_context_StepContext__WEBPACK_IMPORTED_MODULE_8__["default"].Provider, {
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_context_StepContext__WEBPACK_IMPORTED_MODULE_6__["default"].Provider, {
     value: {
       step,
       setStep
     }
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_components_StepCount__WEBPACK_IMPORTED_MODULE_13__["default"], null), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_components_Form__WEBPACK_IMPORTED_MODULE_4__["default"], null, displaySteps()))));
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_components_StepCount__WEBPACK_IMPORTED_MODULE_11__["default"], null), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_components_Form__WEBPACK_IMPORTED_MODULE_4__["default"], null, displaySteps()))));
 }
 
 /***/ }),
@@ -11353,35 +11349,18 @@ const schema = yup__WEBPACK_IMPORTED_MODULE_0__["object"]().shape({
 
 /***/ }),
 
-/***/ "./src/steps/Result.js":
-/*!*****************************!*\
-  !*** ./src/steps/Result.js ***!
-  \*****************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Result; });
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-
-function Result() {
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", null, "result");
-}
-
-/***/ }),
-
-/***/ "./src/steps/Step1.js":
+/***/ "./src/steps/steps.js":
 /*!****************************!*\
-  !*** ./src/steps/Step1.js ***!
+  !*** ./src/steps/steps.js ***!
   \****************************/
-/*! exports provided: default */
+/*! exports provided: Step1, Step2, Result */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Step1; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Step1", function() { return Step1; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Step2", function() { return Step2; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Result", function() { return Result; });
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_FormInput__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/FormInput */ "./src/components/FormInput.js");
@@ -11416,26 +11395,6 @@ function Step1() {
     error: errors === null || errors === void 0 ? void 0 : (_errors$Email = errors.Email) === null || _errors$Email === void 0 ? void 0 : _errors$Email.message
   }));
 }
-
-/***/ }),
-
-/***/ "./src/steps/Step2.js":
-/*!****************************!*\
-  !*** ./src/steps/Step2.js ***!
-  \****************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Step2; });
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_FormInput__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/FormInput */ "./src/components/FormInput.js");
-/* harmony import */ var react_hook_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-hook-form */ "./node_modules/react-hook-form/dist/index.esm.mjs");
-
-
-
 function Step2() {
   var _errors$CardNumber, _errors$ExpiryDate, _errors$cvv;
 
@@ -11464,6 +11423,9 @@ function Step2() {
     error: errors === null || errors === void 0 ? void 0 : (_errors$cvv = errors.cvv) === null || _errors$cvv === void 0 ? void 0 : _errors$cvv.message,
     value: true
   }));
+}
+function Result() {
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", null, "result");
 }
 
 /***/ }),

@@ -2,9 +2,7 @@ import "./frontend.scss";
 import React, { useState, useContext } from "react";
 import ReactDOM from "react-dom";
 import Form from "./components/Form";
-import Step1 from "./steps/Step1";
-import Step2 from "./steps/Step2";
-import Result from "./steps/Result";
+import { Step1, Step2, Result } from "./steps/steps";
 import StepContext from "./context/StepContext";
 import { useForm, FormProvider } from "react-hook-form";
 import { schema } from "./schema/schema";
@@ -26,6 +24,7 @@ function OurComponent(props) {
     mode: "all",
     resolver: yupResolver(schema),
   });
+
   function displaySteps() {
     switch (step) {
       case 0:
