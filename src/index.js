@@ -11,11 +11,12 @@ import {
 import { __ } from "@wordpress/i18n";
 
 wp.blocks.registerBlockType("makeupnamespace/make-up-block-name", {
+  // apiVersion: 2,
   title: "Boilerplate Block",
   icon: "welcome-learn-more",
   category: "common",
   attributes: {
-    title: { type: "string", source: "children", selector: "h2" },
+    title: { type: "string" },
     img: { type: "string" },
     checked: { type: "" },
   },
@@ -25,15 +26,16 @@ wp.blocks.registerBlockType("makeupnamespace/make-up-block-name", {
   },
 });
 
-function EditComponent(props) {
-  const { attributes, setAttributes } = props;
+function EditComponent({ attributes, setAttributes }) {
+  const { title } = attributes;
   const [step, setStep] = useState(0);
 
-  function updateTitle(event) {
-    setAttributes({ title: event.target.value });
+  function updateTitle(newTitle) {
+    setAttributes({ title: newTitle });
   }
-  function updateCheckedField(event) {
-    setAttributes({ checked: event.target.value });
+
+  function updateCheckedField(isChecked) {
+    setAttributes({ checked: isChecked });
   }
 
   function updateSteps() {
@@ -43,13 +45,12 @@ function EditComponent(props) {
       return setStep(0);
     }
   }
-
   return (
-    <div {...useBlockProps}>
+    <div>
       <InspectorControls>
         <Panel>
           <PanelBody title="Form Settings">
-            <TextControl label="Title" value={attributes.title} />
+            <TextControl label="Title" value={title} onChange={updateTitle} />
             <CheckboxControl
               label="Allow anonymous donations"
               // checked={isChecked}
@@ -96,7 +97,7 @@ function EditComponent(props) {
             <div className="form__group">
               <label className="form__label">Last Name:</label>
               <div className="form__group__wrapper">
-                <input className="form__input" placeholder="Last name" />
+                <div className="form__input">Last name</div>
               </div>
             </div>
             <div className="form__group">
@@ -106,7 +107,8 @@ function EditComponent(props) {
               </div>
             </div>
           </>
-        ) : step === 1 ? (
+        ) : //Step 2
+        step === 1 ? (
           <>
             <div className="form__group">
               <div className="form__label">Card Number::</div>
@@ -128,10 +130,9 @@ function EditComponent(props) {
             </div>
           </>
         ) : (
+          //Step 3
           <h2>Result</h2>
         )}
-
-        {/* Step 2 */}
 
         <div id="form__button" onClick={() => updateSteps()}>
           {step <= 1 ? "Next Step" : "Form Submitted!"}
