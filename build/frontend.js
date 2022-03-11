@@ -10949,23 +10949,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Button; });
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _context_StepContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../context/StepContext */ "./src/context/StepContext.js");
-/* harmony import */ var react_hook_form__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-hook-form */ "./node_modules/react-hook-form/dist/index.esm.mjs");
-
-
+/* harmony import */ var react_hook_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-hook-form */ "./node_modules/react-hook-form/dist/index.esm.mjs");
 
 
 function Button(_ref) {
   let {
-    onSubmit
-  } = _ref;
-  const {
+    onSubmit,
     step,
     setStep
-  } = Object(react__WEBPACK_IMPORTED_MODULE_1__["useContext"])(_context_StepContext__WEBPACK_IMPORTED_MODULE_2__["default"]);
-  const methods = Object(react_hook_form__WEBPACK_IMPORTED_MODULE_3__["useFormContext"])();
+  } = _ref;
+  const methods = Object(react_hook_form__WEBPACK_IMPORTED_MODULE_1__["useFormContext"])();
   const {
     isValid,
     errors,
@@ -10973,7 +10966,7 @@ function Button(_ref) {
   } = methods.formState;
 
   function handleClick(event) {
-    event.preventDefault(); // Do not proceed to next step if input listed below contain errors.
+    event.preventDefault(); // Do not proceed to next step if inputs listed below contain errors.
 
     if (!(errors !== null && errors !== void 0 && errors.FirstName) || !(errors !== null && errors !== void 0 && errors.LastName) || !(errors !== null && errors !== void 0 && errors.Email)) {
       setStep(step + 1);
@@ -11020,63 +11013,6 @@ function Button(_ref) {
 
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, renderButton());
 }
-
-/***/ }),
-
-/***/ "./src/components/Form.js":
-/*!********************************!*\
-  !*** ./src/components/Form.js ***!
-  \********************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_hook_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-hook-form */ "./node_modules/react-hook-form/dist/index.esm.mjs");
-/* harmony import */ var _context_StepContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../context/StepContext */ "./src/context/StepContext.js");
-/* harmony import */ var _Button__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Button */ "./src/components/Button.js");
-/* harmony import */ var _FormTitle__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./FormTitle */ "./src/components/FormTitle.js");
-
-
-
-
-
-
-
-const Form = props => {
-  const {
-    step,
-    setStep
-  } = Object(react__WEBPACK_IMPORTED_MODULE_1__["useContext"])(_context_StepContext__WEBPACK_IMPORTED_MODULE_3__["default"]);
-  const methods = Object(react_hook_form__WEBPACK_IMPORTED_MODULE_2__["useFormContext"])();
-  const {
-    children
-  } = props;
-  const {
-    handleSubmit,
-    isValid
-  } = methods;
-
-  const onSubmit = data => {
-    console.log(data);
-    setStep(step + 1);
-  };
-
-  const onErrors = errors => console.error(errors);
-
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("form", {
-    className: "form",
-    onSubmit: handleSubmit(onSubmit, onErrors)
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_FormTitle__WEBPACK_IMPORTED_MODULE_5__["default"], null), children, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_Button__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    onSubmit: handleSubmit(onSubmit, onErrors)
-  }));
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (Form);
 
 /***/ }),
 
@@ -11182,17 +11118,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return StepCount; });
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _context_StepContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../context/StepContext */ "./src/context/StepContext.js");
 
-
-
-function StepCount() {
-  const {
-    step,
-    setStep
-  } = Object(react__WEBPACK_IMPORTED_MODULE_1__["useContext"])(_context_StepContext__WEBPACK_IMPORTED_MODULE_2__["default"]);
+function StepCount(_ref) {
+  let {
+    step
+  } = _ref;
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "step__count"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
@@ -11219,19 +11149,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/context/StepContext.js":
-/*!************************************!*\
-  !*** ./src/context/StepContext.js ***!
-  \************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (React.createContext(null));
-
-/***/ }),
-
 /***/ "./src/frontend.js":
 /*!*************************!*\
   !*** ./src/frontend.js ***!
@@ -11248,14 +11165,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-dom */ "react-dom");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _components_Form__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/Form */ "./src/components/Form.js");
-/* harmony import */ var _steps_steps__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./steps/steps */ "./src/steps/steps.js");
-/* harmony import */ var _context_StepContext__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./context/StepContext */ "./src/context/StepContext.js");
-/* harmony import */ var react_hook_form__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-hook-form */ "./node_modules/react-hook-form/dist/index.esm.mjs");
-/* harmony import */ var _schema_schema__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./schema/schema */ "./src/schema/schema.js");
-/* harmony import */ var _hookform_resolvers_yup__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @hookform/resolvers/yup */ "./node_modules/@hookform/resolvers/yup/dist/yup.module.js");
-/* harmony import */ var _context_PropsContext__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./context/PropsContext */ "./src/context/PropsContext.js");
-/* harmony import */ var _components_StepCount__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/StepCount */ "./src/components/StepCount.js");
+/* harmony import */ var _components_StepCount__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/StepCount */ "./src/components/StepCount.js");
+/* harmony import */ var _components_Button__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/Button */ "./src/components/Button.js");
+/* harmony import */ var _components_FormTitle__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/FormTitle */ "./src/components/FormTitle.js");
+/* harmony import */ var _schema_schema__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./schema/schema */ "./src/schema/schema.js");
+/* harmony import */ var _steps_steps__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./steps/steps */ "./src/steps/steps.js");
+/* harmony import */ var _context_PropsContext__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./context/PropsContext */ "./src/context/PropsContext.js");
+/* harmony import */ var react_hook_form__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-hook-form */ "./node_modules/react-hook-form/dist/index.esm.mjs");
+/* harmony import */ var _hookform_resolvers_yup__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @hookform/resolvers/yup */ "./node_modules/@hookform/resolvers/yup/dist/yup.module.js");
 
 
 
@@ -11271,41 +11188,59 @@ __webpack_require__.r(__webpack_exports__);
 const divsToUpdate = document.querySelectorAll(".boilerplate-update-me");
 divsToUpdate.forEach(div => {
   const data = JSON.parse(div.querySelector("pre").innerText);
-  react_dom__WEBPACK_IMPORTED_MODULE_3___default.a.render(Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(OurComponent, data), div);
+  react_dom__WEBPACK_IMPORTED_MODULE_3___default.a.render(Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(Form, data), div);
   div.classList.remove("boilerplate-update-me");
-});
+}); // Conditionally renders which Inputs to display
 
-function OurComponent(props) {
-  const [step, setStep] = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])(0);
-  const methods = Object(react_hook_form__WEBPACK_IMPORTED_MODULE_7__["useForm"])({
-    mode: "all",
-    resolver: Object(_hookform_resolvers_yup__WEBPACK_IMPORTED_MODULE_9__["yupResolver"])(_schema_schema__WEBPACK_IMPORTED_MODULE_8__["schema"])
-  });
+function displaySteps(step) {
+  switch (step) {
+    case 0:
+      return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_steps_steps__WEBPACK_IMPORTED_MODULE_8__["Step1"], null);
+      break;
 
-  function displaySteps() {
-    switch (step) {
-      case 0:
-        return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_steps_steps__WEBPACK_IMPORTED_MODULE_5__["Step1"], null);
-        break;
+    case 1:
+      return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_steps_steps__WEBPACK_IMPORTED_MODULE_8__["Step2"], null);
+      break;
 
-      case 1:
-        return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_steps_steps__WEBPACK_IMPORTED_MODULE_5__["Step2"], null);
-        break;
-
-      case 2:
-        return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_steps_steps__WEBPACK_IMPORTED_MODULE_5__["Result"], null);
-        break;
-    }
+    case 2:
+      return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_steps_steps__WEBPACK_IMPORTED_MODULE_8__["Result"], null);
+      break;
   }
+}
 
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(react_hook_form__WEBPACK_IMPORTED_MODULE_7__["FormProvider"], methods, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_context_PropsContext__WEBPACK_IMPORTED_MODULE_10__["default"].Provider, {
+function Form(props) {
+  // Step state is used to conditionally render components / update styling.
+  const [step, setStep] = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])(0);
+  const methods = Object(react_hook_form__WEBPACK_IMPORTED_MODULE_10__["useForm"])({
+    mode: "all",
+    resolver: Object(_hookform_resolvers_yup__WEBPACK_IMPORTED_MODULE_11__["yupResolver"])(_schema_schema__WEBPACK_IMPORTED_MODULE_7__["schema"])
+  });
+  const {
+    handleSubmit,
+    isValid
+  } = methods; // Increments Step state & submits form
+
+  const onSubmit = data => {
+    console.log(data);
+    setStep(step + 1);
+  };
+
+  const onErrors = errors => console.error(errors);
+
+  console.log(methods);
+  console.log(props);
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(react_hook_form__WEBPACK_IMPORTED_MODULE_10__["FormProvider"], methods, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_context_PropsContext__WEBPACK_IMPORTED_MODULE_9__["default"].Provider, {
     value: props
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_context_StepContext__WEBPACK_IMPORTED_MODULE_6__["default"].Provider, {
-    value: {
-      step,
-      setStep
-    }
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_components_StepCount__WEBPACK_IMPORTED_MODULE_11__["default"], null), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_components_Form__WEBPACK_IMPORTED_MODULE_4__["default"], null, displaySteps()))));
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_components_StepCount__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    step: step
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("form", {
+    className: "form",
+    onSubmit: handleSubmit(onSubmit, onErrors)
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_components_FormTitle__WEBPACK_IMPORTED_MODULE_6__["default"], null), displaySteps(step), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_components_Button__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    onSubmit: handleSubmit(onSubmit, onErrors),
+    step: step,
+    setStep: setStep
+  })))));
 }
 
 /***/ }),

@@ -1,8 +1,4 @@
-import { useContext } from "react";
-import StepContext from "../context/StepContext";
-
-export default function StepCount() {
-  const { step, setStep } = useContext(StepContext);
+export default function StepCount({ step }) {
   return (
     <div className="step__count">
       <div className={`step ${step === 0 && "step__active"}`}>
