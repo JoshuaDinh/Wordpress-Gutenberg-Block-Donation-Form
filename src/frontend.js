@@ -5,7 +5,7 @@ import StepCount from "./components/StepCount";
 import Button from "./components/Button";
 import FormTitle from "./components/FormTitle";
 import { schema } from "./schema/schema";
-import { Step1, Step2, Result } from "./steps/steps";
+import { Steps } from "./steps/steps";
 import PropsContext from "./context/PropsContext";
 import { useForm, FormProvider } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -18,29 +18,11 @@ divsToUpdate.forEach((div) => {
   div.classList.remove("boilerplate-update-me");
 });
 
-// Conditionally renders which Inputs to display.
-function displaySteps(step) {
-  switch (step) {
-    case 0:
-      return <Step1 />;
-      break;
-    case 1:
-      return <Step2 />;
-      break;
-    case 2:
-      return <Result />;
-      break;
-  }
-}
-
 function Form(props) {
   // Step state is used to conditionally render components / update styling.
   const [step, setStep] = useState(0);
 
-  const methods = useForm({
-    mode: "all",
-    resolver: yupResolver(schema),
-  });
+  const methods = useForm({ mode: "onBlur", resolver: yupResolver(schema) });
 
   const { checkbox } = props;
   const { handleSubmit, isValid } = methods;
@@ -64,7 +46,7 @@ function Form(props) {
           <form className="form" onSubmit={handleSubmit(onSubmit, onErrors)}>
             <FormTitle />
             {/* Renders Input Components / Current Step in the form. */}
-            {displaySteps(step)}
+            <Steps step={step} />
             <Button
               onSubmit={handleSubmit(onSubmit, onErrors)}
               step={step}
