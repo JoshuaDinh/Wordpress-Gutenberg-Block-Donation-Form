@@ -18,7 +18,7 @@ divsToUpdate.forEach((div) => {
   div.classList.remove("boilerplate-update-me");
 });
 
-// Conditionally renders which Inputs to display
+// Conditionally renders which Inputs to display.
 function displaySteps(step) {
   switch (step) {
     case 0:
@@ -45,7 +45,7 @@ function Form(props) {
   const { checkbox } = props;
   const { handleSubmit, isValid } = methods;
 
-  // Increments Step state & submits form
+  // Increments Step state & submits form.
   const onSubmit = (data) => {
     console.log(data);
     setStep(step + 1);
@@ -57,33 +57,19 @@ function Form(props) {
 
   return (
     <FormProvider {...methods}>
-      {/* Passes Props from index.js(BlockEditor Settings) */}
+      {/* Passes Props from index.js(BlockEditor Settings). */}
       <PropsContext.Provider value={props}>
         <>
           <StepCount step={step} />
           <form className="form" onSubmit={handleSubmit(onSubmit, onErrors)}>
             <FormTitle />
-            {/* Renders Input Components */}
+            {/* Renders Input Components / Current Step in the form. */}
             {displaySteps(step)}
-
             <Button
               onSubmit={handleSubmit(onSubmit, onErrors)}
               step={step}
               setStep={setStep}
             />
-            {/* Displays anonymous donation field if enabled in block settings */}
-            {checkbox && (
-              <>
-                <div className="form__anonymous">
-                  <div className="form__label__wrapper">
-                    <label className="form__anonymous__label">
-                      Would you like to donate anonymously?
-                    </label>
-                  </div>
-                  <input type="checkbox" className="form__checkbox" />{" "}
-                </div>
-              </>
-            )}
           </form>
         </>
       </PropsContext.Provider>
