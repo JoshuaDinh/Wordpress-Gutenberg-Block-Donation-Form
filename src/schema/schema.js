@@ -16,8 +16,24 @@ export const schema = yup.object().shape({
     .typeError("Looks like you forgot some numbers")
     .nullable()
     .required(),
-  expireMM: yup.number().typeError("Somethings fishy about this.").required(""),
-  expireYY: yup.number().typeError("Somethings fishy about this.").required(""),
+  expireMM: yup
+    .number()
+    .test(
+      "len",
+      "Please enter the correct format (Max: 2 digits)",
+      (val) => !val || (val && val.toString().length === 2)
+    )
+    .typeError("Somethings fishy about this.")
+    .required(""),
+  expireYY: yup
+    .number()
+    .test(
+      "len",
+      "Please enter the correct format (Max: 2 digits)",
+      (val) => !val || (val && val.toString().length === 2)
+    )
+    .typeError("Somethings fishy about this.")
+    .required(""),
   cvv: yup
     .number()
     // Test number of characters in input
