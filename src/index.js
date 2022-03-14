@@ -1,23 +1,30 @@
 import "./index.scss";
 import { useState, useEffect } from "react";
-import { InspectorControls, useBlockProps } from "@wordpress/block-editor";
+import {
+  InspectorControls,
+  useBlockProps,
+  RichText,
+  MediaPlaceholder,
+} from "@wordpress/block-editor";
 import {
   Panel,
   PanelBody,
   CheckboxControl,
   TextControl,
-  MediaPlaceholder,
+  Spinner,
 } from "@wordpress/components";
-import { __ } from "@wordpress/i18n";
+import { isBlobURL } from "@wordpress/blob";
 
 wp.blocks.registerBlockType("makeupnamespace/make-up-block-name", {
-  // apiVersion: 2,
+  apiVersion: 2,
   title: "Boilerplate Block",
   icon: "welcome-learn-more",
   category: "common",
   attributes: {
     title: { type: "String" },
-    img: { type: "Boolean" },
+    id: { type: "number" },
+    alt: { type: "string" },
+    url: { type: "string" },
     checkbox: { type: "Boolean" },
   },
   edit: EditComponent,
@@ -27,30 +34,44 @@ wp.blocks.registerBlockType("makeupnamespace/make-up-block-name", {
 });
 
 function EditComponent({ attributes, setAttributes }) {
-  const { title, checkbox } = attributes;
+  const { title, url, alt, checkbox } = attributes;
   const [step, setStep] = useState(0);
   const [isChecked, setIsChecked] = useState(false);
 
-  // Updates Title of form
+  // Updates Title of the form.
   function updateTitle(newTitle) {
     setAttributes({ title: newTitle });
   }
 
-  function updateSteps() {
-    if (step <= 1) {
-      return setStep(step + 1);
-    } else {
-      return setStep(0);
+  // Allows Images to be selected for upload - resets attributes if any errors.
+  function onSelectImage(image) {
+    console.log(image);
+    if (!image || !image.url) {
+      setAttributes({ url: undefined, id: undefined, alt: "" });
+      return;
     }
+    setAttributes({ url: image.url, id: image.id, alt: image.alt });
   }
 
-  // Updates checkbox status
+  console.log(attributes);
+
+  // Allows Image urls to be selected for upload.
+  function onSelectUrl(newURL) {
+    setAttributes({
+      url: newURL,
+      id: undefined,
+      alt: "",
+    });
+  }
+
+  // Updates checkbox status.
   useEffect(() => {
     setAttributes({ checkbox: isChecked });
   }, [isChecked]);
 
   return (
-    <div>
+    <section {...useBlockProps()}>
+      {/* Sidebar/settings controls. */}
       <InspectorControls>
         <Panel>
           <PanelBody title="Form Settings">
@@ -63,7 +84,17 @@ function EditComponent({ attributes, setAttributes }) {
           </PanelBody>
         </Panel>
       </InspectorControls>
-
+      {/* Block editor component for image uploading. */}
+      <MediaPlaceholder
+        className="form__img"
+        icon="Admin-users"
+        onSelect={onSelectImage}
+        onSelectURL={onSelectUrl}
+        onError={(error) => console.log(error)}
+        accept="image/*"
+        allowedTypes={["image"]}
+        diableMediaButtons={url}
+      />
       <div className="step__count">
         <div
           className={`step ${step === 0 && "step__active"}`}
@@ -85,63 +116,60 @@ function EditComponent({ attributes, setAttributes }) {
         </div>
       </div>
       <form className="form">
-        <div className="form__header">
-          <h2>GiveWP</h2>
-          <img alt="img" src="image" />
+        <div className="form__title">
+          {/* Block editor component for the title of the form. */}
+          <RichText
+            className="form__title__input"
+            placeholder="Your Form Title Here *"
+            tagName="h2"
+            value={title}
+            onChange={updateTitle}
+          />
+          {url && (
+            <div className="form__img__container">
+              <img className="form__img" src={url} alt={alt} />
+              {isBlobURL(url) && <Spinner className="form__img__spinner" />}
+            </div>
+          )}
         </div>
-        {/* Step 1 */}
-        {step === 0 ? (
-          <>
-            <div className="form__group">
-              <div className="form__label">First Name:</div>
-              <div className="form__group__wrapper">
-                <div className="form__input">First Name</div>
-              </div>
-            </div>
-            <div className="form__group">
-              <label className="form__label">Last Name:</label>
-              <div className="form__group__wrapper">
-                <div className="form__input">Last name</div>
-              </div>
-            </div>
-            <div className="form__group">
-              <div className="form__label">Email:</div>
-              <div className="form__group__wrapper">
-                <div className="form__input">Email</div>
-              </div>
-            </div>
-          </>
-        ) : //Step 2
-        step === 1 ? (
-          <>
-            <div className="form__group">
-              <div className="form__label">Card Number::</div>
-              <div className="form__group__wrapper">
-                <div className="form__input">xxxx-xxxx-xxxx-xxxx</div>
-              </div>
-            </div>
-            <div className="form__group">
-              <label className="form__label">Exp. Date:</label>
-              <div className="form__group__wrapper">
-                <div className="form__input">Exp. Date</div>
-              </div>
-            </div>
-            <div className="form__group">
-              <div className="form__label">cvv:</div>
-              <div className="form__group__wrapper">
-                <div className="form__input">cvv:</div>
-              </div>
-            </div>
-          </>
-        ) : (
-          //Step 3
-          <h2>Result</h2>
-        )}
 
-        <div id="form__button" onClick={() => updateSteps()}>
-          {step <= 1 ? "Next Step" : "Form Submitted!"}
-        </div>
+        <>
+          <div className="form__group">
+            <div className="form__label">First Name:</div>
+            <div className="form__group__wrapper">
+              <input
+                className="form__input"
+                placeholder="Placeholder"
+                disabled={true}
+              />
+            </div>
+          </div>
+          <div className="form__group">
+            <label className="form__label">Last Name:</label>
+            <div className="form__group__wrapper">
+              <input
+                className="form__input"
+                placeholder="Placeholder"
+                disabled={true}
+              />
+            </div>
+          </div>
+          <div className="form__group">
+            <div className="form__label">Email:</div>
+            <div className="form__group__wrapper">
+              <input
+                className="form__input"
+                placeholder="Placeholder"
+                disabled={true}
+              />
+            </div>
+          </div>
+        </>
+
+        <button id="form__button" type="button">
+          Next Step
+        </button>
       </form>
-    </div>
+    </section>
   );
 }
