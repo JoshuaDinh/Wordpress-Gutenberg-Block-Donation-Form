@@ -61,7 +61,7 @@
   box-shadow: 0 0 10px 0 rgba(105, 184, 104, 0.5);
 }
 
-.form__header {
+.form__title {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -70,21 +70,21 @@
   width: 100%;
   margin-bottom: 30px;
 }
-.form__header h3 {
+.form__title h3 {
   font-weight: 700;
 }
-.form__header img {
+.form__title .form__img {
   height: 50px;
 }
 
 .form__group {
   display: flex;
   justify-content: space-between;
-  margin: 10px;
+  margin-bottom: 10px;
 }
 .form__group .form__label {
   width: 50%;
-  margin: 10px;
+  margin: 10px 0;
   color: #69b868;
   font-weight: 700;
   font-size: 1.15rem;
@@ -96,7 +96,6 @@
   justify-content: space-between;
 }
 .form__group .form__group__wrapper .form__input {
-  width: 100%;
   color: grey;
   border: 1px solid lightgrey;
   border-radius: 5px;
@@ -108,8 +107,37 @@
   font-size: 0.85rem;
 }
 
-.form__card__container {
+.form__group__exp {
   display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.form__group__exp .form__label__exp {
+  width: 50%;
+  margin: 10px;
+  color: #69b868;
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+.form__group__exp .form__group__container__exp {
+  width: 100%;
+}
+.form__group__exp .form__group__container__exp .form__group__wrapper__exp {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.form__group__exp .form__group__container__exp .form__group__wrapper__exp .form__input__exp {
+  width: 50%;
+  color: grey;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+}
+.form__group__exp .error__message__exp {
+  height: 25px;
+  padding-left: 5px;
+  color: red;
+  font-size: 0.85rem;
 }
 
 /*# sourceMappingURL=frontend.css.map*/

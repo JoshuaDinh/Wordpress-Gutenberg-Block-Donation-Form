@@ -1,11 +1,11 @@
-import FormInput from "../components/FormInput";
+import FormInput from "./FormInput";
 import { useFormContext } from "react-hook-form";
-import ExpInput from "../components/ExpInput";
+import ExpInput from "./ExpInput";
 
 // Renders inputs based on current step of form
-export function Steps({ step }) {
+export default function Steps({ step }) {
   const methods = useFormContext();
-  const { errors } = methods.formState;
+  const { errors } = methods?.formState;
 
   switch (step) {
     case 0:

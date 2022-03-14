@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^2.8.8",
+    "@wordpress/blob": "^3.4.1",
     "@wordpress/block-editor": "^8.2.0",
     "@wordpress/blocks": "^11.2.2",
     "@wordpress/components": "^19.5.0",

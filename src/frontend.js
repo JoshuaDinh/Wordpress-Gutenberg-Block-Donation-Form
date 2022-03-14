@@ -4,8 +4,8 @@ import ReactDOM from "react-dom";
 import StepCount from "./components/StepCount";
 import Button from "./components/Button";
 import FormTitle from "./components/FormTitle";
+import Steps from "./components/steps";
 import { schema } from "./schema/schema";
-import { Steps } from "./steps/steps";
 import PropsContext from "./context/PropsContext";
 import { useForm, FormProvider } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -24,7 +24,6 @@ function Form(props) {
 
   const methods = useForm({ mode: "onBlur", resolver: yupResolver(schema) });
 
-  const { checkbox } = props;
   const { handleSubmit, isValid } = methods;
 
   // Increments Step state & submits form.

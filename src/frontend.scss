@@ -1,3 +1,4 @@
+// Step Count Component
 .step__count {
   display: flex;
   justify-content: flex-end;
@@ -25,9 +26,9 @@
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   }
 }
+
+// Form Component
 .form {
-  // display: flex;
-  // flex-direction: column;
   background: whitesmoke;
   border: 1px solid lightgrey;
   padding: 20px 50px 37px;
@@ -70,7 +71,8 @@
   }
 }
 
-.form__header {
+// Form Title Component
+.form__title {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -82,19 +84,19 @@
   h3 {
     font-weight: 700;
   }
-  img {
+  .form__img {
     height: 50px;
   }
 }
 
+// Form Input Component
 .form__group {
   display: flex;
   justify-content: space-between;
-  margin: 10px;
-
+  margin-bottom: 10px;
   .form__label {
     width: 50%;
-    margin: 10px;
+    margin: 10px 0;
     color: #69b868;
     font-weight: 700;
     font-size: 1.15rem;
@@ -107,7 +109,6 @@
     justify-content: space-between;
 
     .form__input {
-      width: 100%;
       color: grey;
       border: 1px solid lightgrey;
       border-radius: 5px;
@@ -122,6 +123,39 @@
   }
 }
 
-.form__card__container {
+// EXP Input Component
+.form__group__exp {
   display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+
+  .form__label__exp {
+    width: 50%;
+    margin: 10px;
+    color: #69b868;
+    font-weight: 700;
+    font-size: 1.15rem;
+  }
+
+  .form__group__container__exp {
+    width: 100%;
+    .form__group__wrapper__exp {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+
+      .form__input__exp {
+        width: 50%;
+        color: grey;
+        border: 1px solid lightgrey;
+        border-radius: 5px;
+      }
+    }
+  }
+  .error__message__exp {
+    height: 25px;
+    padding-left: 5px;
+    color: red;
+    font-size: 0.85rem;
+  }
 }

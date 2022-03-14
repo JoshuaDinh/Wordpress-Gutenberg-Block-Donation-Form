@@ -104,8 +104,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _wordpress_blob__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/blob */ "@wordpress/blob");
+/* harmony import */ var _wordpress_blob__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blob__WEBPACK_IMPORTED_MODULE_5__);
 
 
 
@@ -113,7 +113,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 wp.blocks.registerBlockType("makeupnamespace/make-up-block-name", {
-  // apiVersion: 2,
+  apiVersion: 2,
   title: "Boilerplate Block",
   icon: "welcome-learn-more",
   category: "common",
@@ -121,8 +121,14 @@ wp.blocks.registerBlockType("makeupnamespace/make-up-block-name", {
     title: {
       type: "String"
     },
-    img: {
-      type: "Boolean"
+    id: {
+      type: "number"
+    },
+    alt: {
+      type: "string"
+    },
+    url: {
+      type: "string"
     },
     checkbox: {
       type: "Boolean"
@@ -141,24 +147,48 @@ function EditComponent(_ref) {
   } = _ref;
   const {
     title,
+    url,
+    alt,
     checkbox
   } = attributes;
   const [step, setStep] = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])(0);
-  const [isChecked, setIsChecked] = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])(false); // Updates Title of form
+  const [isChecked, setIsChecked] = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])(false); // Updates Title of the form.
 
   function updateTitle(newTitle) {
     setAttributes({
       title: newTitle
     });
+  } // Allows Images to be selected for upload - resets attributes if any errors.
+
+
+  function onSelectImage(image) {
+    console.log(image);
+
+    if (!image || !image.url) {
+      setAttributes({
+        url: undefined,
+        id: undefined,
+        alt: ""
+      });
+      return;
+    }
+
+    setAttributes({
+      url: image.url,
+      id: image.id,
+      alt: image.alt
+    });
   }
 
-  function updateSteps() {
-    if (step <= 1) {
-      return setStep(step + 1);
-    } else {
-      return setStep(0);
-    }
-  } // Updates checkbox status
+  console.log(attributes); // Allows Image urls to be selected for upload.
+
+  function onSelectUrl(newURL) {
+    setAttributes({
+      url: newURL,
+      id: undefined,
+      alt: ""
+    });
+  } // Updates checkbox status.
 
 
   Object(react__WEBPACK_IMPORTED_MODULE_2__["useEffect"])(() => {
@@ -166,7 +196,7 @@ function EditComponent(_ref) {
       checkbox: isChecked
     });
   }, [isChecked]);
-  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__["InspectorControls"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["Panel"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["PanelBody"], {
+  return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("section", Object(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__["useBlockProps"])(), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__["InspectorControls"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["Panel"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["PanelBody"], {
     title: "Form Settings"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["TextControl"], {
     label: "Title",
@@ -176,7 +206,16 @@ function EditComponent(_ref) {
     label: "Allow anonymous donations",
     checked: isChecked,
     onChange: setIsChecked
-  })))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+  })))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__["MediaPlaceholder"], {
+    className: "form__img",
+    icon: "Admin-users",
+    onSelect: onSelectImage,
+    onSelectURL: onSelectUrl,
+    onError: error => console.log(error),
+    accept: "image/*",
+    allowedTypes: ["image"],
+    diableMediaButtons: url
+  }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "step__count"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: `step ${step === 0 && "step__active"}`,
@@ -190,64 +229,55 @@ function EditComponent(_ref) {
   }, step > 2 ? "Submitted" : "Result")), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("form", {
     className: "form"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
-    className: "form__header"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("h2", null, "GiveWP"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("img", {
-    alt: "img",
-    src: "image"
-  })), step === 0 ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: "form__title"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__["RichText"], {
+    className: "form__title__input",
+    placeholder: "Your Form Title Here *",
+    tagName: "h2",
+    value: title,
+    onChange: updateTitle
+  }), url && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+    className: "form__img__container"
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("img", {
+    className: "form__img",
+    src: url,
+    alt: alt
+  }), Object(_wordpress_blob__WEBPACK_IMPORTED_MODULE_5__["isBlobURL"])(url) && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__["Spinner"], {
+    className: "form__img__spinner"
+  }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "form__group"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "form__label"
   }, "First Name:"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "form__group__wrapper"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
-    className: "form__input"
-  }, "First Name"))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("input", {
+    className: "form__input",
+    placeholder: "Placeholder",
+    disabled: true
+  }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "form__group"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("label", {
     className: "form__label"
   }, "Last Name:"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "form__group__wrapper"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
-    className: "form__input"
-  }, "Last name"))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("input", {
+    className: "form__input",
+    placeholder: "Placeholder",
+    disabled: true
+  }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "form__group"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "form__label"
   }, "Email:"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "form__group__wrapper"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
-    className: "form__input"
-  }, "Email")))) : //Step 2
-  step === 1 ? Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
-    className: "form__group"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
-    className: "form__label"
-  }, "Card Number::"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
-    className: "form__group__wrapper"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
-    className: "form__input"
-  }, "xxxx-xxxx-xxxx-xxxx"))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
-    className: "form__group"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("label", {
-    className: "form__label"
-  }, "Exp. Date:"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
-    className: "form__group__wrapper"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
-    className: "form__input"
-  }, "Exp. Date"))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
-    className: "form__group"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
-    className: "form__label"
-  }, "cvv:"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
-    className: "form__group__wrapper"
-  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
-    className: "form__input"
-  }, "cvv:")))) : //Step 3
-  Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("h2", null, "Result"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+  }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("input", {
+    className: "form__input",
+    placeholder: "Placeholder",
+    disabled: true
+  })))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("button", {
     id: "form__button",
-    onClick: () => updateSteps()
-  }, step <= 1 ? "Next Step" : "Form Submitted!")));
+    type: "button"
+  }, "Next Step")));
 }
 
 /***/ }),
@@ -263,6 +293,17 @@ function EditComponent(_ref) {
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
+
+/***/ }),
+
+/***/ "@wordpress/blob":
+/*!******************************!*\
+  !*** external ["wp","blob"] ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+(function() { module.exports = window["wp"]["blob"]; }());
 
 /***/ }),
 
@@ -296,17 +337,6 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports) {
 
 (function() { module.exports = window["wp"]["element"]; }());
-
-/***/ }),
-
-/***/ "@wordpress/i18n":
-/*!******************************!*\
-  !*** external ["wp","i18n"] ***!
-  \******************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-(function() { module.exports = window["wp"]["i18n"]; }());
 
 /***/ }),
 
