@@ -39,9 +39,6 @@
   font-size: 0.75rem;
   color: grey;
 }
-.form .form__anonymous .form__checkbox {
-  border: 1px solid lightgrey;
-}
 .form #form__button {
   height: 60px;
   width: 100%;
@@ -90,12 +87,13 @@
   font-size: 1.15rem;
 }
 .form__group .form__group__wrapper {
-  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: 100%;
 }
 .form__group .form__group__wrapper .form__input {
+  width: 100%;
   color: grey;
   border: 1px solid lightgrey;
   border-radius: 5px;
@@ -106,6 +104,13 @@
   color: red;
   font-size: 0.85rem;
 }
+.form__group .form__label__checkbox {
+  color: gray;
+}
+.form__group .form__input__checkbox {
+  color: gray;
+  border: 1px solid lightgrey;
+}
 
 .form__group__exp {
   display: flex;
@@ -114,7 +119,7 @@
 }
 .form__group__exp .form__label__exp {
   width: 50%;
-  margin: 10px;
+  margin: 10px 0;
   color: #69b868;
   font-weight: 700;
   font-size: 1.15rem;

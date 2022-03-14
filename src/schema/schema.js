@@ -4,12 +4,12 @@ import * as yup from "yup";
 export const schema = yup.object().shape({
   FirstName: yup
     .string()
-    .matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for this field ")
+    .matches(/^[aA-zZ\s]+$/, "Please enter the correct format")
     .max(25)
     .required(),
   LastName: yup
     .string()
-    .matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for this field ")
+    .matches(/^[aA-zZ\s]+$/, "Please enter the correct format")
     .max(25)
     .required(),
   Email: yup.string().email().required(),
@@ -21,7 +21,7 @@ export const schema = yup.object().shape({
       "Must be exactly 16 digits",
       (val) => !val || (val && val.toString().length === 16)
     )
-    .typeError("Looks like you forgot some numbers")
+    .typeError("Please enter the correct format")
     .nullable()
     .required(),
   expireMM: yup

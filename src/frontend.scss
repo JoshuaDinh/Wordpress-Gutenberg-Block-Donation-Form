@@ -45,10 +45,6 @@
         color: grey;
       }
     }
-
-    .form__checkbox {
-      border: 1px solid lightgrey;
-    }
   }
 
   #form__button {
@@ -103,12 +99,13 @@
   }
 
   .form__group__wrapper {
-    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    width: 100%;
 
     .form__input {
+      width: 100%;
       color: grey;
       border: 1px solid lightgrey;
       border-radius: 5px;
@@ -121,6 +118,14 @@
       font-size: 0.85rem;
     }
   }
+
+  .form__label__checkbox {
+    color: gray;
+  }
+  .form__input__checkbox {
+    color: gray;
+    border: 1px solid lightgrey;
+  }
 }
 
 // EXP Input Component
@@ -131,7 +136,7 @@
 
   .form__label__exp {
     width: 50%;
-    margin: 10px;
+    margin: 10px 0;
     color: #69b868;
     font-weight: 700;
     font-size: 1.15rem;

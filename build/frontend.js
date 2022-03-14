@@ -11211,9 +11211,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Steps; });
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _FormInput__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./FormInput */ "./src/components/FormInput.js");
-/* harmony import */ var react_hook_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-hook-form */ "./node_modules/react-hook-form/dist/index.esm.mjs");
-/* harmony import */ var _ExpInput__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ExpInput */ "./src/components/ExpInput.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _FormInput__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./FormInput */ "./src/components/FormInput.js");
+/* harmony import */ var react_hook_form__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-hook-form */ "./node_modules/react-hook-form/dist/index.esm.mjs");
+/* harmony import */ var _ExpInput__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ExpInput */ "./src/components/ExpInput.js");
+/* harmony import */ var _context_PropsContext__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../context/PropsContext */ "./src/context/PropsContext.js");
+
+
 
 
 
@@ -11225,26 +11230,29 @@ function Steps(_ref) {
   let {
     step
   } = _ref;
-  const methods = Object(react_hook_form__WEBPACK_IMPORTED_MODULE_2__["useFormContext"])();
+  const {
+    checkbox
+  } = Object(react__WEBPACK_IMPORTED_MODULE_1__["useContext"])(_context_PropsContext__WEBPACK_IMPORTED_MODULE_5__["default"]);
+  const methods = Object(react_hook_form__WEBPACK_IMPORTED_MODULE_3__["useFormContext"])();
   const {
     errors
   } = methods === null || methods === void 0 ? void 0 : methods.formState;
 
   switch (step) {
     case 0:
-      return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_FormInput__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_FormInput__WEBPACK_IMPORTED_MODULE_2__["default"], {
         name: "FirstName",
         placeHolder: "First Name",
         label: "First Name:",
         text: "text",
         error: errors === null || errors === void 0 ? void 0 : (_errors$FirstName = errors.FirstName) === null || _errors$FirstName === void 0 ? void 0 : _errors$FirstName.message
-      }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_FormInput__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_FormInput__WEBPACK_IMPORTED_MODULE_2__["default"], {
         name: "LastName",
         placeHolder: "Last Name",
         label: "Last Name:",
         text: "text",
         error: errors === null || errors === void 0 ? void 0 : (_errors$LastName = errors.LastName) === null || _errors$LastName === void 0 ? void 0 : _errors$LastName.message
-      }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_FormInput__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_FormInput__WEBPACK_IMPORTED_MODULE_2__["default"], {
         name: "Email",
         placeHolder: "Email:",
         label: "Email",
@@ -11254,27 +11262,34 @@ function Steps(_ref) {
       break;
 
     case 1:
-      return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_FormInput__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_FormInput__WEBPACK_IMPORTED_MODULE_2__["default"], {
         name: "CardNumber",
         placeHolder: "xxxx-xxxx-xxxx-xxxx",
         label: "Card Number:",
         number: "number",
         error: errors === null || errors === void 0 ? void 0 : (_errors$CardNumber = errors.CardNumber) === null || _errors$CardNumber === void 0 ? void 0 : _errors$CardNumber.message,
         value: true
-      }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_ExpInput__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_ExpInput__WEBPACK_IMPORTED_MODULE_4__["default"], {
         name: "ExpiryDate",
         placeHolder: "Exp. Date",
         label: "MM/YY:",
         number: "number",
         error: errors === null || errors === void 0 ? void 0 : (_errors$ExpiryDate = errors.ExpiryDate) === null || _errors$ExpiryDate === void 0 ? void 0 : _errors$ExpiryDate.message
-      }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_FormInput__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_FormInput__WEBPACK_IMPORTED_MODULE_2__["default"], {
         name: "cvv",
         placeHolder: "cvv",
         label: "cvv: ",
         number: "number",
         error: errors === null || errors === void 0 ? void 0 : (_errors$cvv = errors.cvv) === null || _errors$cvv === void 0 ? void 0 : _errors$cvv.message,
         value: true
-      }));
+      }), checkbox && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
+        className: "form__group"
+      }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("label", {
+        className: "form__label__checkbox"
+      }, "Would you like to donate anonymously?"), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("input", {
+        className: "form__input__checkbox",
+        type: "checkbox"
+      })));
       break;
 
     case 2:
@@ -11410,11 +11425,11 @@ __webpack_require__.r(__webpack_exports__);
  // Schema for validation
 
 const schema = yup__WEBPACK_IMPORTED_MODULE_0__["object"]().shape({
-  FirstName: yup__WEBPACK_IMPORTED_MODULE_0__["string"]().matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for this field ").max(25).required(),
-  LastName: yup__WEBPACK_IMPORTED_MODULE_0__["string"]().matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for this field ").max(25).required(),
+  FirstName: yup__WEBPACK_IMPORTED_MODULE_0__["string"]().matches(/^[aA-zZ\s]+$/, "Please enter the correct format").max(25).required(),
+  LastName: yup__WEBPACK_IMPORTED_MODULE_0__["string"]().matches(/^[aA-zZ\s]+$/, "Please enter the correct format").max(25).required(),
   Email: yup__WEBPACK_IMPORTED_MODULE_0__["string"]().email().required(),
   CardNumber: yup__WEBPACK_IMPORTED_MODULE_0__["number"]() // Test number of characters in input
-  .test("len", "Must be exactly 16 digits", val => !val || val && val.toString().length === 16).typeError("Looks like you forgot some numbers").nullable().required(),
+  .test("len", "Must be exactly 16 digits", val => !val || val && val.toString().length === 16).typeError("Please enter the correct format").nullable().required(),
   expireMM: yup__WEBPACK_IMPORTED_MODULE_0__["number"]().test("len", "Please enter the correct format (Max: 2 digits)", val => !val || val && val.toString().length === 2).typeError("Please enter the correct format").required(""),
   expireYY: yup__WEBPACK_IMPORTED_MODULE_0__["number"]().test("len", "Please enter the correct format (Max: 2 digits)", val => !val || val && val.toString().length === 2).typeError("Please enter the correct format").required(""),
   cvv: yup__WEBPACK_IMPORTED_MODULE_0__["number"]() // Test number of characters in input
