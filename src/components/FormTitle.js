@@ -5,7 +5,6 @@ export default function FormTitle() {
   // Retrieve title props set by block editor
   const { title, url, alt } = useContext(PropsContext);
 
-  console.log(url, alt);
   return (
     <div className="form__title">
       <h3>{title}</h3>

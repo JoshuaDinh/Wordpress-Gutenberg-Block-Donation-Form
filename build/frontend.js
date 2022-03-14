@@ -11146,7 +11146,6 @@ function FormTitle() {
     url,
     alt
   } = Object(react__WEBPACK_IMPORTED_MODULE_1__["useContext"])(_context_PropsContext__WEBPACK_IMPORTED_MODULE_2__["default"]);
-  console.log(url, alt);
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
     className: "form__title"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("h3", null, title), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("img", {
@@ -11366,8 +11365,6 @@ function Form(props) {
 
   const onErrors = errors => console.error(errors);
 
-  console.log(methods);
-  console.log(props);
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(react_hook_form__WEBPACK_IMPORTED_MODULE_10__["FormProvider"], methods, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_context_PropsContext__WEBPACK_IMPORTED_MODULE_9__["default"].Provider, {
     value: props
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_components_StepCount__WEBPACK_IMPORTED_MODULE_4__["default"], {

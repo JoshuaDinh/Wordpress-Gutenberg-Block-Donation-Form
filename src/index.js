@@ -53,8 +53,6 @@ function EditComponent({ attributes, setAttributes }) {
     setAttributes({ url: image.url, id: image.id, alt: image.alt });
   }
 
-  console.log(attributes);
-
   // Allows Image urls to be selected for upload.
   function onSelectUrl(newURL) {
     setAttributes({
@@ -75,7 +73,6 @@ function EditComponent({ attributes, setAttributes }) {
       <InspectorControls>
         <Panel>
           <PanelBody title="Form Settings">
-            <TextControl label="Title" value={title} onChange={updateTitle} />
             <CheckboxControl
               label="Allow anonymous donations"
               checked={isChecked}

@@ -37,8 +37,6 @@ function Form(props) {
   };
 
   const onErrors = (errors) => console.error(errors);
-  console.log(methods);
-  console.log(props);
 
   return (
     <FormProvider {...methods}>

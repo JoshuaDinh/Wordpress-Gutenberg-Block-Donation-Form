@@ -29,7 +29,6 @@
     "@wordpress/components": "^19.5.0",
     "@wordpress/i18n": "^4.3.1",
     "react-hook-form": "^7.27.1",
-    "react-tsparticles": "^1.42.0",
     "yup": "^0.32.11"
   }
 }
