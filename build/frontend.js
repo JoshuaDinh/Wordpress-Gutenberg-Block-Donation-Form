@@ -10960,23 +10960,12 @@ function Button(_ref) {
   } = _ref;
   const methods = Object(react_hook_form__WEBPACK_IMPORTED_MODULE_1__["useFormContext"])();
   const {
-    trigger
-  } = methods;
-  const {
-    isValid,
     errors,
     dirtyFields
   } = methods.formState;
 
   function handleClick(event) {
-    event.preventDefault();
-
-    async () => {
-      const result = await trigger("FirstName", {
-        shouldFocus: true
-      });
-    }; // Do not proceed to next step if inputs listed below contain errors.
-
+    event.preventDefault(); // Do not proceed to next step if inputs listed below contain errors.
 
     if (!(errors !== null && errors !== void 0 && errors.FirstName) || !(errors !== null && errors !== void 0 && errors.LastName) || !(errors !== null && errors !== void 0 && errors.Email)) {
       setStep(step + 1);
@@ -11096,6 +11085,7 @@ __webpack_require__.r(__webpack_exports__);
 
 function FormInput(props) {
   const {
+    type,
     text,
     number,
     label,
@@ -11108,24 +11098,23 @@ function FormInput(props) {
   return Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
     className: "form__group"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("label", {
-    className: "form__label"
+    className: "form__label",
+    htmlFor: name
   }, label), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("div", {
     className: "form__group__wrapper"
   }, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("input", _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({
-    className: "form__input",
-    key: name,
-    type: number ? number : text,
-    placeHolder: placeHolder,
+    id: name,
     name: name,
-    id: name
+    className: "form__input",
+    type: type,
+    placeHolder: placeHolder,
+    "aria-invalid": error ? "true" : "false"
   }, methods.register(name, {
     required: {
       value: true,
       message: `Please enter your ${placeHolder}`
     }
-  }), {
-    ariaInvalid: ariaInvalid
-  })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("p", {
+  }))), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__["createElement"])("p", {
     className: "error__message"
   }, error)));
 }
@@ -11244,19 +11233,19 @@ function Steps(_ref) {
         name: "FirstName",
         placeHolder: "First Name",
         label: "First Name:",
-        text: "text",
+        type: "text",
         error: errors === null || errors === void 0 ? void 0 : (_errors$FirstName = errors.FirstName) === null || _errors$FirstName === void 0 ? void 0 : _errors$FirstName.message
       }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_FormInput__WEBPACK_IMPORTED_MODULE_2__["default"], {
         name: "LastName",
         placeHolder: "Last Name",
         label: "Last Name:",
-        text: "text",
+        type: "text",
         error: errors === null || errors === void 0 ? void 0 : (_errors$LastName = errors.LastName) === null || _errors$LastName === void 0 ? void 0 : _errors$LastName.message
       }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_FormInput__WEBPACK_IMPORTED_MODULE_2__["default"], {
         name: "Email",
         placeHolder: "Email:",
         label: "Email",
-        text: "email",
+        type: "email",
         error: errors === null || errors === void 0 ? void 0 : (_errors$Email = errors.Email) === null || _errors$Email === void 0 ? void 0 : _errors$Email.message
       }));
       break;
@@ -11266,20 +11255,20 @@ function Steps(_ref) {
         name: "CardNumber",
         placeHolder: "xxxx-xxxx-xxxx-xxxx",
         label: "Card Number:",
-        number: "number",
+        type: "number",
         error: errors === null || errors === void 0 ? void 0 : (_errors$CardNumber = errors.CardNumber) === null || _errors$CardNumber === void 0 ? void 0 : _errors$CardNumber.message,
         value: true
       }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_ExpInput__WEBPACK_IMPORTED_MODULE_4__["default"], {
         name: "ExpiryDate",
         placeHolder: "Exp. Date",
         label: "MM/YY:",
-        number: "number",
+        type: "number",
         error: errors === null || errors === void 0 ? void 0 : (_errors$ExpiryDate = errors.ExpiryDate) === null || _errors$ExpiryDate === void 0 ? void 0 : _errors$ExpiryDate.message
       }), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])(_FormInput__WEBPACK_IMPORTED_MODULE_2__["default"], {
         name: "cvv",
         placeHolder: "cvv",
         label: "cvv: ",
-        number: "number",
+        type: "number",
         error: errors === null || errors === void 0 ? void 0 : (_errors$cvv = errors.cvv) === null || _errors$cvv === void 0 ? void 0 : _errors$cvv.message,
         value: true
       }), checkbox && Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("div", {
@@ -11362,12 +11351,12 @@ function Form(props) {
   // Step state is used to conditionally render components / update styling.
   const [step, setStep] = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])(0);
   const methods = Object(react_hook_form__WEBPACK_IMPORTED_MODULE_10__["useForm"])({
-    mode: "onBlur",
+    mode: "onChange",
+    shouldFocusError: true,
     resolver: Object(_hookform_resolvers_yup__WEBPACK_IMPORTED_MODULE_11__["yupResolver"])(_schema_schema__WEBPACK_IMPORTED_MODULE_8__["schema"])
   });
   const {
-    handleSubmit,
-    isValid
+    handleSubmit
   } = methods; // Increments Step state & submits form.
 
   const onSubmit = data => {

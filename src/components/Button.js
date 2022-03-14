@@ -2,14 +2,10 @@ import { useFormContext } from "react-hook-form";
 
 export default function Button({ onSubmit, step, setStep }) {
   const methods = useFormContext();
-  const { trigger } = methods;
-  const { isValid, errors, dirtyFields } = methods.formState;
+  const { errors, dirtyFields } = methods.formState;
 
   function handleClick(event) {
     event.preventDefault();
-    async () => {
-      const result = await trigger("FirstName", { shouldFocus: true });
-    };
     // Do not proceed to next step if inputs listed below contain errors.
     if (!errors?.FirstName || !errors?.LastName || !errors?.Email) {
       setStep(step + 1);

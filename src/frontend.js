@@ -22,9 +22,13 @@ function Form(props) {
   // Step state is used to conditionally render components / update styling.
   const [step, setStep] = useState(0);
 
-  const methods = useForm({ mode: "onBlur", resolver: yupResolver(schema) });
+  const methods = useForm({
+    mode: "onChange",
+    shouldFocusError: true,
+    resolver: yupResolver(schema),
+  });
 
-  const { handleSubmit, isValid } = methods;
+  const { handleSubmit } = methods;
 
   // Increments Step state & submits form.
   const onSubmit = (data) => {

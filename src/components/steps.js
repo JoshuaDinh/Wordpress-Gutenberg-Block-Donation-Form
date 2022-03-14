@@ -18,21 +18,21 @@ export default function Steps({ step }) {
             name="FirstName"
             placeHolder="First Name"
             label="First Name:"
-            text="text"
+            type="text"
             error={errors?.FirstName?.message}
           />
           <FormInput
             name="LastName"
             placeHolder="Last Name"
             label="Last Name:"
-            text="text"
+            type="text"
             error={errors?.LastName?.message}
           />
           <FormInput
             name="Email"
             placeHolder="Email:"
             label="Email"
-            text="email"
+            type="email"
             error={errors?.Email?.message}
           />
         </>
@@ -45,7 +45,7 @@ export default function Steps({ step }) {
             name="CardNumber"
             placeHolder="xxxx-xxxx-xxxx-xxxx"
             label="Card Number:"
-            number="number"
+            type="number"
             error={errors?.CardNumber?.message}
             value={true}
           />
@@ -53,7 +53,7 @@ export default function Steps({ step }) {
             name="ExpiryDate"
             placeHolder="Exp. Date"
             label="MM/YY:"
-            number="number"
+            type="number"
             error={errors?.ExpiryDate?.message}
           />
 
@@ -61,7 +61,7 @@ export default function Steps({ step }) {
             name="cvv"
             placeHolder="cvv"
             label="cvv: "
-            number="number"
+            type="number"
             error={errors?.cvv?.message}
             value={true}
           />

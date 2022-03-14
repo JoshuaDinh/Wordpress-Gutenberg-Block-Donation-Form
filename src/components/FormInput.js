@@ -1,7 +1,16 @@
 import { useFormContext } from "react-hook-form";
 
 export default function FormInput(props) {
-  const { text, number, label, name, placeHolder, ariaInvalid, error } = props;
+  const {
+    type,
+    text,
+    number,
+    label,
+    name,
+    placeHolder,
+    ariaInvalid,
+    error,
+  } = props;
   const methods = useFormContext();
 
   return (
@@ -14,7 +23,7 @@ export default function FormInput(props) {
           id={name}
           name={name}
           className="form__input"
-          type={number ? number : text}
+          type={type}
           placeHolder={placeHolder}
           aria-invalid={error ? "true" : "false"}
           {...methods.register(name, {
