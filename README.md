@@ -13,3 +13,9 @@ A list of Packages used within the project:
 *  @wordpress/components (https://www.npmjs.com/package/@wordpress/components): Version 19.5.0
 *  @wordpress/i18n (https://www.npmjs.com/package/@wordpress/i18n): Version 4.3.1
 *  @wordpress/blob (https://github.com/WordPress/gutenberg/blob/9d4b83cbbafcd6c6cbd20c86b572f458fc65ff16/packages/blob/README.md): Version 3.4.1
+
+## Gutenberg Block Settings
+***
+*  1 Text Field
+*  1 Image upload field
+*  1 Checkbox field
