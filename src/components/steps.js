@@ -1,9 +1,12 @@
+import { useContext } from "react";
 import FormInput from "./FormInput";
 import { useFormContext } from "react-hook-form";
 import ExpInput from "./ExpInput";
+import PropsContext from "../context/PropsContext";
 
 // Renders inputs based on current step of form
 export default function Steps({ step }) {
+  const { checkbox } = useContext(PropsContext);
   const methods = useFormContext();
   const { errors } = methods?.formState;
 
@@ -62,6 +65,14 @@ export default function Steps({ step }) {
             error={errors?.cvv?.message}
             value={true}
           />
+          {checkbox && (
+            <div className="form__group">
+              <label className="form__label__checkbox">
+                Would you like to donate anonymously?
+              </label>
+              <input className="form__input__checkbox" type="checkbox" />
+            </div>
+          )}
         </>
       );
       break;
